@@ -14,9 +14,9 @@ The aim of this folder is not to obsess over numbers. It's to make sure the thin
 - **What counts:** consecutive hours where I am genuinely unreachable (no Slack, no email, no "quick check") and no critical process stalls, no customer is blocked, no teammate is waiting on me.
 - **How I measure:** longest uninterrupted stretch in a normal work day over the last 7 days. Not the best day, not the worst day — the median.
 - **Why it matters:** this is the cleanest proxy for whether I'm a bottleneck. A business that needs me every 20 minutes is not a business, it's a job.
-- **Baseline:**
-- **90-day target:**
-- **12-month target:**
+- **Baseline (May 2026):** 0 hours. The business needs me for everything right now. That's exactly why this is being built. No step-away time exists yet.
+- **90-day target:** 2–3 hours
+- **12-month target:** 4–6 hours
 
 ### 2. Automation / augmentation ratio
 **Question:** What percentage of the tasks I currently do are automated or heavily augmented?
@@ -27,9 +27,9 @@ The aim of this folder is not to obsess over numbers. It's to make sure the thin
   - **Manual** = me, from scratch, every time.
 - **How I measure:** at the end of each week, list the top ~20 tasks I actually did. Tag each one A / G / M. Ratio = (A + G) / total.
 - **Why it matters:** manual % is the ceiling on how much I can grow without burning out. Dropping manual % is the only way step-away hours go up.
-- **Baseline:**
-- **90-day target:**
-- **12-month target:**
+- **Baseline (May 2026):** ~50%. Learned AI and built systems — Claude writes content, Sunday planning is automated, workflow tools in place. But most tasks are still executed by hand — posting, lead follow-up, client work.
+- **90-day target:** 50%
+- **12-month target:** 70%
 
 ### 3. Revenue per person
 **Question:** How much revenue does the business generate per person on the team?
@@ -37,9 +37,9 @@ The aim of this folder is not to obsess over numbers. It's to make sure the thin
 - **What counts:** trailing 12-month revenue ÷ total full-time-equivalent headcount (including me, including contractors pro-rated by FTE).
 - **How I measure:** monthly. Simple division.
 - **Why it matters:** this is the blunt instrument that tells me whether my automation and leverage moves are actually paying off. If step-away hours and automation go up but revenue per person doesn't, I'm automating the wrong things.
-- **Baseline:**
-- **90-day target:**
-- **12-month target:**
+- **Baseline (May 2026):** £3,000 TTM (£3,000 in 2025, £0 in 2026 to date). Solo — 1 FTE. £3,000/person. Pre-revenue on the new pivot. SafeSite deal in closing stage — first 2026 income pending.
+- **90-day target:** £3,000–£6,000 TTM run rate (£250–£500/month consistently)
+- **12-month target:** £12,000–£24,000 TTM (£1,000–£2,000/month consistently)
 
 ---
 

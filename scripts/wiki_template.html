@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }} — High Power Brain</title>
+<style>
+:root {
+  --link: #0645ad;
+  --link-visited: #0b0080;
+  --border: #a2a9b1;
+  --bg: #f8f9fa;
+  --sidebar-bg: #f8f9fa;
+  --infobox-bg: #f8f9fa;
+  --text: #202122;
+  --heading-border: #a2a9b1;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Linux Libertine', Georgia, Times, serif;
+  font-size: 14px;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+#header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#header a { text-decoration: none; color: var(--text); font-size: 18px; font-weight: bold; }
+#header .tagline { color: #72777d; font-size: 12px; font-family: sans-serif; }
+#layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#sidebar {
+  width: 200px;
+  min-width: 200px;
+  padding: 16px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  font-family: sans-serif;
+  font-size: 13px;
+}
+#sidebar h3 { font-size: 12px; text-transform: uppercase; color: #72777d; margin-bottom: 8px; letter-spacing: 0.05em; }
+#sidebar ul { list-style: none; margin-bottom: 16px; }
+#sidebar ul li { margin-bottom: 4px; }
+#sidebar ul li a { color: var(--link); text-decoration: none; }
+#sidebar ul li a:hover { text-decoration: underline; }
+#content {
+  flex: 1;
+  padding: 24px 32px;
+  max-width: 860px;
+}
+#content h1 {
+  font-family: 'Linux Libertine', Georgia, serif;
+  font-size: 28px;
+  font-weight: normal;
+  border-bottom: 1px solid var(--heading-border);
+  padding-bottom: 4px;
+  margin-bottom: 16px;
+}
+#content h2 {
+  font-size: 20px;
+  font-weight: normal;
+  border-bottom: 1px solid var(--heading-border);
+  padding-bottom: 2px;
+  margin: 24px 0 12px;
+}
+#content h3 { font-size: 16px; margin: 16px 0 8px; }
+#content p { margin-bottom: 12px; }
+#content ul, #content ol { margin: 8px 0 12px 24px; }
+#content li { margin-bottom: 4px; }
+#content a { color: var(--link); }
+#content a:visited { color: var(--link-visited); }
+#content table { border-collapse: collapse; margin: 12px 0; font-size: 13px; font-family: sans-serif; }
+#content table th, #content table td { border: 1px solid var(--border); padding: 4px 8px; }
+#content table th { background: var(--bg); }
+#content code { font-family: monospace; background: var(--bg); padding: 1px 4px; border: 1px solid var(--border); font-size: 13px; }
+#content pre { background: var(--bg); border: 1px solid var(--border); padding: 12px; overflow-x: auto; margin: 12px 0; }
+#content pre code { background: none; border: none; padding: 0; }
+#content blockquote { border-left: 3px solid var(--border); margin: 12px 0; padding: 4px 12px; color: #555; }
+.infobox {
+  float: right;
+  clear: right;
+  margin: 0 0 16px 24px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  background: var(--infobox-bg);
+  font-size: 13px;
+  font-family: sans-serif;
+  min-width: 220px;
+  max-width: 320px;
+}
+.infobox .infobox-title {
+  background: #cee0f2;
+  text-align: center;
+  font-weight: bold;
+  padding: 6px;
+  margin: -12px -12px 10px;
+  font-size: 14px;
+}
+.infobox table { width: 100%; margin: 0; }
+.infobox table td { border: none; padding: 3px 4px; vertical-align: top; }
+.infobox table td:first-child { font-weight: bold; width: 40%; }
+.backlinks { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); font-family: sans-serif; font-size: 13px; }
+.backlinks h2 { font-size: 16px; margin-bottom: 8px; border: none; }
+.backlinks ul { list-style: none; margin: 0; }
+.backlinks ul li a { color: var(--link); }
+.category-badge { font-family: sans-serif; font-size: 12px; color: #72777d; margin-bottom: 8px; }
+#footer { border-top: 1px solid var(--border); padding: 12px 32px; font-family: sans-serif; font-size: 12px; color: #72777d; }
+</style>
+</head>
+<body>
+<div id="header">
+  <a href="/site/index.html">High Power Brain</a>
+  <span class="tagline">Personal wiki</span>
+</div>
+<div id="layout">
+  <div id="sidebar">
+    {% if categories %}
+    <h3>Categories</h3>
+    <ul>
+      {% for cat in categories %}
+      <li><a href="{{ cat.url }}">{{ cat.name }}</a> ({{ cat.count }})</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <h3>Recent</h3>
+    <ul>
+      {% for page in recent %}
+      <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="content">
+    {% if category %}<div class="category-badge">{{ category }}</div>{% endif %}
+    <h1>{{ title }}</h1>
+    {{ body }}
+    {% if backlinks %}
+    <div class="backlinks">
+      <h2>What links here</h2>
+      <ul>
+        {% for bl in backlinks %}
+        <li><a href="{{ bl.url }}">{{ bl.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+<div id="footer">High Power Brain &mdash; generated {{ generated_date }}</div>
+</body>
+</html>
