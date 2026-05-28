@@ -94,6 +94,14 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 
 ---
 
+## Self-Improvement Workflow
+
+When errors or corrections occur:
+1. Log to `.learnings/ERRORS.md`, `LEARNINGS.md`, or `FEATURE_REQUESTS.md`
+2. Review and promote broadly applicable learnings to `CLAUDE.md`
+
+---
+
 ## Tools Scott uses
 
 - **Content:** TikTok, YouTube, LinkedIn
