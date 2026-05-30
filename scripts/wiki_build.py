@@ -234,6 +234,13 @@ def build_index(pages, categories, recent_nav, template_str, generated_date):
             body_parts.append(f'<li><a href="{p["url"]}">{p["title"]}</a></li>')
         body_parts.append("</ul>")
 
+    # Root-level files (no top_cat) land in "Misc" — include them on the home page
+    if "Misc" in cat_pages:
+        body_parts.append("<h2>Misc</h2><ul>")
+        for p in sorted(cat_pages["Misc"], key=lambda x: x["title"]):
+            body_parts.append(f'<li><a href="{p["url"]}">{p["title"]}</a></li>')
+        body_parts.append("</ul>")
+
     body_html = "\n".join(body_parts)
 
     html = template.render(
@@ -261,6 +268,8 @@ def build_category_indexes(pages, categories, recent_nav, template_str, generate
         cat_pages[key].append(p)
 
     for (cat, top), ps in cat_pages.items():
+        if not top:
+            continue  # root-level files have no top_cat; skip or they overwrite site/index.html
         body_parts = [f"<h2>{cat}</h2><ul>"]
         for p in sorted(ps, key=lambda x: x["title"]):
             body_parts.append(f'<li><a href="../{p["url"]}">{p["title"]}</a></li>')
