@@ -24,6 +24,7 @@ Pinned copies of files from [garrytan/gbrain](https://github.com/garrytan/gbrain
 | `skills/briefing.SKILL.md` | `skills/briefing/SKILL.md` | Daily briefing compilation | Partial — informed our `briefing.md` workflow |
 | `skills/enrich.SKILL.md` | `skills/enrich/SKILL.md` | External API enrichment (Crustdata, Exa) | Reference only — out of scope for now |
 | `skills/migrate.SKILL.md` | `skills/migrate/SKILL.md` | Universal migration from other tools | Partial — informed our `migrate.md` workflow |
+| `docs/UPGRADING_DOWNSTREAM_AGENTS.md` | `docs/UPGRADING_DOWNSTREAM_AGENTS.md` | Skill diffs to apply when upgrading a downstream fork of gbrain skills | Partial — we are exactly this: a downstream agent. Review on every sync run. |
 
 ## Sync procedure
 
@@ -40,3 +41,4 @@ See `9 - Operations/workflows/sync upstream.md`. Short version: fetch the latest
 | Date | Action | Details |
 |---|---|---|
 | 2026-04-10 | First pin | Initial 11 files at `e9f3c9c` |
+| 2026-05-29 | Sync run | 248 commits behind. Adopted: ingest citations, maintain heartbeat cadence, query citation propagation. Added `docs/UPGRADING_DOWNSTREAM_AGENTS.md` to tracked files. Pinned commit not yet updated — pending human review of remaining CONSIDER items. |

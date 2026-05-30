@@ -70,6 +70,14 @@ Write an answer that:
 - Quotes the user's own words when it carries weight
 - Acknowledges uncertainty when sources disagree
 
+**Citation propagation:** When brain pages contain inline `[Source: ...]` citations, carry them forward into your answer so the user can trace facts to their origin — not just to the brain page, but to the original capture. Example: "According to [[People/Scott Brodie]] (compiled from Meeting "SafeSite call", 2026-05-12)…"
+
+**Source precedence** when sources conflict:
+1. Scott's own direct statements (highest authority)
+2. Compiled-truth section of an entity page (synthesised, cited)
+3. Timeline entries (raw evidence, reverse-chronological)
+4. External sources if any (lowest authority)
+
 Example:
 
 > On 2026-04-03 in your last meeting with Alex, you committed to:

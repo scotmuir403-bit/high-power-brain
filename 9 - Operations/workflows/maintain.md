@@ -13,6 +13,18 @@ Weekly brain health check. Detects contradictions, stale information, broken lin
 
 Borrowed pattern from [gbrain's maintain skill](https://github.com/garrytan/gbrain) (`9 - Operations/upstream/gbrain/skills/maintain.SKILL.md`).
 
+## Maintenance cadence
+
+Three tiers of maintenance — each one catches different things:
+
+| Tier | When | What it checks |
+|---|---|---|
+| **Per-session (light)** | Every inbox run, after processing | Stale compiled-truth detection: flag entity pages where compiled truth is >30 days old but the timeline has entries newer than that. New evidence exists that hasn't been synthesised yet. |
+| **Daily (medium)** | On demand or after first inbox run of the day | Unprocessed inbox age: any `.inbox/` files older than 24 hours that haven't been processed indicate the inbox processor isn't running. Check git log for last processor commit. |
+| **Weekly (full)** | Sundays at 4am (this workflow) | Full vault scan — contradictions, stale pages, broken links, orphans, naming drift. See procedure below. |
+
+The per-session and daily checks are lightweight and should run inside the inbox processor after Step 6. This workflow handles the weekly full scan only.
+
 ## Relationship to other workflows
 
 - **Dream cycle** runs nightly and does *per-day* maintenance — consolidation of today's changes, contradictions introduced today, broken links caused by today's renames.

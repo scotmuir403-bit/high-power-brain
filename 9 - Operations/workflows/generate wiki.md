@@ -2,7 +2,7 @@
 status: active
 schedule: manual
 scope: global
-last_run: null
+last_run: 2026-05-30
 owner: claude
 ---
 

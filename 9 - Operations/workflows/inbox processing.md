@@ -70,12 +70,26 @@ For each file, identify:
 
 ### 3b. Source attribution (citations)
 
-**Every fact you write into the vault must be traceable to its source.** Non-negotiable. The pattern:
+**Every fact you write into the vault must carry an inline citation. No exceptions — including compiled-truth sections.**
 
-- Log entries (`2 - Live Logs/*.md`) always end with a `→ [[source-file]]` link to the inbox file or meeting note the fact came from.
-- Timeline entries on entity pages always end with `→ [[source-file]]`.
-- When a timeline entry quotes the user's own words, use quote marks and attribute the quote with the date.
-- The compiled-truth section of an entity page can omit inline citations (it's a synthesis) but every claim in it must be supported by at least one timeline entry.
+**Citation format by source type:**
+
+| Source | Format |
+|---|---|
+| User's own words | `[Source: Scott, {context}, YYYY-MM-DD]` |
+| Meeting / call | `[Source: Meeting "{title}", YYYY-MM-DD]` |
+| Email or message | `[Source: email from {name} re: {subject}, YYYY-MM-DD]` |
+| Web article | `[Source: {publication}, YYYY-MM-DD]` |
+| Social media | `[Source: X/@handle, YYYY-MM-DD]` |
+| Synthesis across sources | `[Source: compiled from {source1}, {source2}]` |
+
+**Wikilink rule:** Every citation must also include a `→ [[source-file]]` wikilink back to the inbox file or meeting note the fact came from — so it's navigable in Obsidian. The typed `[Source: ...]` tag is the human-readable label; the `→ [[wikilink]]` is the navigable pointer.
+
+**Compiled-truth sections:** These are syntheses — they may not map to a single source file. Use `[Source: compiled from {timeline entries}]` and list the 2-3 most relevant timeline entries by date. Never leave a compiled-truth claim entirely uncited.
+
+**Log entries:** End each entry with `→ [[source-file]]`.
+
+**Timeline entries:** End each entry with `[Source: ...]` + `→ [[source-file]]`.
 
 When in doubt, over-cite rather than under-cite. Citations are how contradictions get audited later.
 

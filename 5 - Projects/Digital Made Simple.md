@@ -44,5 +44,5 @@ First Done-With-You client in closing stage ([[People/Scott Brodie]] — SafeSit
 ## Platforms
 
 - **LinkedIn** — primary B2B lead gen (3x/week)
-- **TikTok @scott.digital.madesimple** — audience building (14 videos/week)
+- **TikTok @scott.aimade.simple** — audience building (14 videos/week)
 - **YouTube — The Bloke's Guide to AI** — long-form, slow burn

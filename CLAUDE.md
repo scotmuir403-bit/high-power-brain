@@ -22,24 +22,23 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 
 **Strategic pivot confirmed May 2026:**
 - Away from: promoting digital marketing courses (SMGB affiliate)
-- Toward: AI content and automation services for small businesses
+- Toward: AI content and automation services — Done-With-You client work
 
 **Positioning:** "I build AI content systems for small businesses — set up once, posts written for you every week."
 
-**Target client:** Small business owners who need consistent content but have no system, no time, and no idea where to start with AI.
+**Target client:** Small business owners, content creators, and everyday people who want to use AI to automate tasks, save time, and build something — but don't know where to start.
 
 **Active leads (May 2026):**
 - Scott Brodie | SafeSite Companion app — HOT. Call booked. Likely first DWY client.
 - Tony Murphy | Rochelle de Maya jewellery — Warm. Follow up end of June.
 
-**Proof statement (use only this):** "I've already made high 4 figures promoting digital products online."
+**Proof statement (use only this):** "I'm building this from scratch around night shifts. First client deal in progress. You're watching it happen in real time."
 
 **Hard rules — never do these:**
-- Never name the previous course or its original creator
-- Never claim SMGB sales until Scott confirms them
-- Never say Scott "built" or "created" SMGB — he promotes it as an affiliate
 - Never fake income claims, screenshots, urgency, or scarcity
 - Never use pressure tactics or countdown timers
+- Never pretend to be further ahead than Scott actually is
+- Never position Scott as a guru, expert, or coach — he's a fellow bloke figuring it out
 
 ---
 
@@ -48,15 +47,16 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 | Platform | Handle / Channel | Purpose | Frequency |
 |---|---|---|---|
 | LinkedIn | — | B2B lead gen — business owners, inbound DMs, discovery calls | 3x/week |
-| TikTok | @scott.digital.madesimple | Audience building — working-class + AI | 14 videos/week |
+| TikTok | @scott.aimade.simple | Audience building — working-class + AI | 14 videos/week |
 | YouTube | The Bloke's Guide to AI | AI tools in plain English, 40s/50s audience | Slow burn |
 | Instagram/Facebook | — | On hold — come back once LinkedIn/TikTok producing | — |
 
 **TikTok content pillars:**
-1. "AI on a night shift" — building a business while working full-time
-2. AI tools explained simply — no tech knowledge required
-3. Building in public — real progress, real clients, no hype
+1. "AI on a night shift" — building with AI while working full-time
+2. AI tools explained simply — for everyday people, not tech people
+3. Building in public — real progress, real clients, no hype, no filter
 4. Anti-guru — honest takes on what AI can and can't do
+5. AI for everyone — automations, tools, and systems any normal person can use
 
 ---
 
@@ -114,7 +114,7 @@ When errors or corrections occur:
 
 ## Current numbers (May 2026)
 
-- TikTok: ~1,800–1,850 followers
+- TikTok: ~1,893 followers (@scott.aimade.simple)
 - YouTube: ~60 subscribers
 - Revenue: ~£3,000 in 2025 total
 - Since March 2025: consistent posting (longest run)
