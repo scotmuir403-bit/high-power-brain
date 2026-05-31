@@ -720,15 +720,11 @@ function submitEmail() {
     input.classList.remove('error');
 
     const score = Math.round((total / MAX_SCORE) * 100);
-    const isReady = score >= 70;
+    const tier  = score >= 70 ? 'ready' : score >= 40 ? 'curious' : 'starter';
 
-    // TODO: Replace with your systeme.io form endpoint
-    // fetch('YOUR_SYSTEMIO_ENDPOINT', { method:'POST', body: JSON.stringify({ email, score }) });
-
-    show('s-ty');
-    document.getElementById('ty-msg').textContent = isReady
-        ? "I'll be in touch with your personalised breakdown shortly. If a quick call makes sense, I'll include a link to book one — no pressure, no pitch."
-        : "Check your inbox — your starter guide is on its way. If it doesn't show up in a few minutes, check your spam folder.";
+    const base = 'https://www.digital-madesimple.co.uk/aiquestions';
+    const params = new URLSearchParams({ email, score, tier });
+    window.location.href = `${base}?${params.toString()}`;
 }
 </script>
 </body>
