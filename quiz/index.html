@@ -486,25 +486,11 @@
         <div class="email-card">
             <div class="email-card-title" id="e-title"></div>
             <div class="email-card-body" id="e-body"></div>
-            <input type="email" class="email-field" id="e-input" placeholder="your@email.com">
-            <button class="btn btn-orange" onclick="submitEmail()">Send Me My Plan →</button>
+            <button class="btn btn-orange" id="btn-cta" onclick="goToSignup()">Get My Free Plan →</button>
             <div class="privacy">No spam. No sharing your data. Unsubscribe any time.</div>
         </div>
     </div>
 
-    <!-- THANK YOU -->
-    <div class="screen" id="s-ty">
-        <div class="brand">
-            <div class="brand-icon">🌙</div>
-            <div class="brand-name">AI on Nightshift</div>
-        </div>
-        <div class="ty-wrap">
-            <div class="ty-tick">✓</div>
-            <h2 class="ty-title">You're in.</h2>
-            <p class="ty-body" id="ty-msg"></p>
-            <a class="ty-link" href="https://ainightshift.co.uk">← Back to ainightshift.co.uk</a>
-        </div>
-    </div>
 
 </div>
 <script>
@@ -709,22 +695,11 @@ function showResults() {
     }, 300);
 }
 
-function submitEmail() {
-    const input = document.getElementById('e-input');
-    const email = input.value.trim();
-    if (!email || !email.includes('@') || !email.includes('.')) {
-        input.classList.add('error');
-        input.focus();
-        return;
-    }
-    input.classList.remove('error');
-
+function goToSignup() {
     const score = Math.round((total / MAX_SCORE) * 100);
     const tier  = score >= 70 ? 'ready' : score >= 40 ? 'curious' : 'starter';
-
-    const base = 'https://www.digital-madesimple.co.uk/aiquestions';
-    const params = new URLSearchParams({ email, score, tier });
-    window.location.href = `${base}?${params.toString()}`;
+    const params = new URLSearchParams({ score, tier });
+    window.location.href = `https://www.digital-madesimple.co.uk/aiquestions?${params.toString()}`;
 }
 </script>
 </body>
