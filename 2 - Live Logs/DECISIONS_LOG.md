@@ -13,6 +13,28 @@
 
 ---
 
+- **Date:** 2026-05-31
+- **Decision:** Launch "AI on Nightshift" as the brand — separate from Digital Made Simple.
+- **Context:** "AI Made Simple" is a registered brand in UK and USA. "AI on Nightshift" is uniquely Scott's — tied to his story, nobody can take it. Domain ainightshift.co.uk purchased same day.
+- **Alternatives considered:** Scott | AI Made Simple, Scott | Digital Made Simple, Scott | Nightshift Builder
+- **Expected outcome:** A distinct, ownable brand that stops the scroll on TikTok and attracts working people.
+
+---
+
+- **Date:** 2026-05-31
+- **Decision:** Two-platform brand strategy — TikTok for working people, LinkedIn for small business owners.
+- **Context:** Trying to speak to both audiences on one profile waters everything down. TikTok audience = people like Scott. LinkedIn audience = paying clients.
+- **Expected outcome:** Higher relevance on each platform, cleaner lead gen through the quiz.
+
+---
+
+- **Date:** 2026-05-31
+- **Decision:** Build AI Readiness Quiz as primary lead gen tool.
+- **Context:** Both warm leads (Brodie and Murphy) went quiet. No active pipeline. Quiz creates new leads rather than waiting. Built and deployed same day to ainightshift.netlify.app.
+- **Expected outcome:** Email opt-ins via systeme.io. High scorers routed to booking link. Low scorers nurtured.
+
+---
+
 - **Date:** 2026-05-28 _(backfilled from onboarding)_
 - **Decision:** Strategic pivot — move Digital Made Simple away from SMGB affiliate promotion, toward AI content and automation services for small businesses.
 - **Context:** The affiliate income was not scalable and tied to someone else's business. The AI content systems angle is more authentic, more in demand, and aligns with Scott's actual skills.
