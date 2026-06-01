@@ -1,8 +1,13 @@
 .DS_Store
 .obsidian/workspace*
 .obsidian/cache
+.obsidian/graph.json
+.obsidian/plugins/
 .trash/
 *.tmp
+
+# Generated/cache files
+results.json
 
 # Secrets — never commit. .env.example is allowed (template only).
 .env

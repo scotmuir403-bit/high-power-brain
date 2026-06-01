@@ -6,11 +6,11 @@
 
 Runs the SafeSite Companion app — a B2B app for traffic management and construction (Chapter 8 guidance on site). Spoke at Traffex (national traffic management exhibition) in May 2026. Current marketing: "30 minutes on Canva getting 2 likes" — baseline is effectively zero.
 
-## Status (May 2026)
+## Status (June 2026)
 
-**HOT.** Call booked Friday afternoon (phone call). Likely first Done-With-You client for Digital Made Simple.
+**HOT — but ghosting.** Friday call (2026-05-30) did not happen — Scott Brodie did not respond. Rebooked/follow-up pending as of 2026-06-01.
 
-**After call:** Send Tide payment link if ready, or send a sample SafeSite LinkedIn post if he wants to see proof first.
+**Next action:** Chase again. If no reply within a few days, send a low-pressure message with a sample SafeSite LinkedIn post — proof first, then ask for the call.
 
 ## Why this is a good fit
 

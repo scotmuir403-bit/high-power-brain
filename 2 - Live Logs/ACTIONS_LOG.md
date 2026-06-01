@@ -4,6 +4,9 @@
 
 ## 2026
 
+- **Date:** 2026-06-01 — LinkedIn post published automatically (first automated post of the week). Recorded 2 TikTok scripts from week of 2 June plan. Third script to record later today. Planning to record first YouTube video (The Bloke's Guide to AI — Claude intro).
+- **Date:** 2026-06-01 — Scott Brodie (SafeSite) call did not happen — no reply from Brodie. Status: still hot but chasing. Follow-up pending.
+- **Date:** 2026-06-01 — Tony Murphy (Rochelle de Maya jewellery) going cold — not replying to messages. Had been in active discussion. Follow-up was planned for end of June.
 - **Date:** 2026-05-28 _(backfilled from onboarding)_ — Strategic pivot confirmed: Digital Made Simple moves away from SMGB affiliate, toward AI content systems for small businesses. Positioning: "set up once, posts written for you every week."
 - **Date:** 2026-05-28 _(backfilled from onboarding)_ — Call booked with Scott Brodie (SafeSite Companion). HOT lead — likely first DWY client.
 - **Date:** 2026-05-28 _(backfilled from onboarding)_ — Enrolled in animation/CG course. Learning phase only — future Tier 3 upsell.

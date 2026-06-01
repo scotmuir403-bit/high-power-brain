@@ -57,7 +57,7 @@ Two-platform strategy:
 ### Domain
 - `ainightshift.co.uk` — purchased 2026-05-31 via GoDaddy
 
-### TikTok profile fixes needed
+### TikTok profile fixes — going live 2026-06-03
 - Name: change from "Scott | AI Automation" → **Scott | AI on Nightshift**
 - Remove "Side hustler" from bio (undermines trust with paying clients)
 - Bio rewrite: *"I show working people how to use AI without the overwhelm / Still on nightshift — building this on the side / Take the 2-min quiz ↓"*
