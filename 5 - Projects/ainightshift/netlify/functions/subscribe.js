@@ -31,11 +31,11 @@ exports.handler = async (event) => {
   };
 
   try {
-    // Step 1: Create contact (or find existing)
+    // Step 1: Create contact (or find existing) — include quiz-lead tag on creation
     const createRes = await fetch(`${baseUrl}/contacts`, {
       method:  'POST',
       headers,
-      body:    JSON.stringify({ email, firstName: name })
+      body:    JSON.stringify({ email, firstName: name, tagIds: [2038166] })
     });
 
     let contactId;
