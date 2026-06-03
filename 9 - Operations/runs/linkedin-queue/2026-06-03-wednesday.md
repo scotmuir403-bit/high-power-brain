@@ -1,7 +1,8 @@
 ---
 date: 2026-06-03
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-06-03T07:04:00Z
 type: AI news take / honest opinion
 ---
 
