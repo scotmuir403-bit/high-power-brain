@@ -47,7 +47,7 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 | Platform | Handle / Channel | Purpose | Frequency |
 |---|---|---|---|
 | LinkedIn | — | B2B lead gen — business owners, inbound DMs, discovery calls | 3x/week |
-| TikTok | @scott.aimade.simple | Audience building — working-class + AI | 14 videos/week |
+| TikTok | @ainightshift | Audience building — working-class + AI | 14 videos/week |
 | YouTube | The Bloke's Guide to AI | AI tools in plain English, 40s/50s audience | Slow burn |
 | Instagram/Facebook | — | On hold — come back once LinkedIn/TikTok producing | — |
 
@@ -114,7 +114,7 @@ When errors or corrections occur:
 
 ## Current numbers (May 2026)
 
-- TikTok: ~1,893 followers (@scott.aimade.simple)
+- TikTok: ~1,893 followers (@ainightshift)
 - YouTube: ~60 subscribers
 - Revenue: ~£3,000 in 2025 total
 - Since March 2025: consistent posting (longest run)
