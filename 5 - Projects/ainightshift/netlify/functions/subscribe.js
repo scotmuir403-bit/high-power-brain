@@ -10,14 +10,16 @@ exports.handler = async (event) => {
 
   if (!email) return { statusCode: 400, body: 'Email required' };
 
-  const tagMap = {
-    'Stage 1': 'quiz-stage-1-ai-beginner',
-    'Stage 2': 'quiz-stage-2-ai-explorer',
-    'Stage 3': 'quiz-stage-3-ai-operator'
+  const tagIdMap = {
+    'Stage 1': 2018859,
+    'Stage 2': 2036624,
+    'Stage 3': 2036625
   };
-  const stageKey  = tier.split('—')[0].trim(); // split on em dash
-  const stageTag  = tagMap[stageKey] || 'quiz-lead';
-  const tagsToAdd = Array.from(new Set(['quiz-lead', stageTag]));
+  const stageKey    = tier.split('—')[0].trim();
+  const stageTagId  = tagIdMap[stageKey];
+  const tagIds      = stageTagId
+    ? [2038166, stageTagId]
+    : [2038166];
 
   const apiKey  = process.env.SYSTEME_API_KEY;
   console.log('API key present:', !!apiKey, '| first 6 chars:', apiKey ? apiKey.substring(0, 6) : 'MISSING');
@@ -59,35 +61,15 @@ exports.handler = async (event) => {
       return { statusCode: 200, body: 'OK' };
     }
 
-    // Step 2: Fetch ALL tags from Systeme.io (handle pagination)
-    let allTags = [];
-    let page = 1;
-    while (true) {
-      const tagsRes  = await fetch(`${baseUrl}/tags?page=${page}&limit=100`, {
-        headers: { 'X-API-Key': apiKey, 'Accept': 'application/json' }
-      });
-      const tagsBody = await tagsRes.json();
-      const items    = tagsBody.items || [];
-      allTags = allTags.concat(items);
-      if (items.length < 100) break;
-      page++;
-    }
-    console.log('Tags available:', allTags.map(t => `${t.name}(${t.id})`).join(', '));
-
-    // Step 3: Apply each tag
-    for (const tagName of tagsToAdd) {
-      const tag = allTags.find(t => t.name === tagName);
-      if (!tag) {
-        console.error('Tag not found:', tagName, '— does it exist in Systeme.io?');
-        continue;
-      }
-
+    // Step 2: Apply hardcoded tag IDs
+    console.log('Applying tag IDs:', tagIds);
+    for (const tagId of tagIds) {
       const applyRes = await fetch(`${baseUrl}/contacts/${contactId}/tags`, {
         method:  'POST',
         headers,
-        body:    JSON.stringify({ tagId: tag.id })
+        body:    JSON.stringify({ tagId })
       });
-      console.log(`Applied tag "${tagName}" (${tag.id}) — status:`, applyRes.status);
+      console.log(`Applied tag ID ${tagId} — status:`, applyRes.status);
     }
 
   } catch (err) {
