@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Readiness Quiz | AI on Nightshift</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .brand-icon { font-size: 28px; }
+
+    .brand-name {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f0a500;
+      margin-top: 4px;
+    }
+
+    .card {
+      background: #1a1a2e;
+      border-radius: 16px;
+      padding: 36px 32px;
+      max-width: 480px;
+      width: 100%;
+      border: 1px solid #2a2a4a;
+    }
+
+    @media (max-width: 520px) {
+      .card { padding: 28px 20px; }
+    }
+
+    /* LANDING */
+    .headline {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .headline em {
+      color: #f0a500;
+      font-style: normal;
+    }
+
+    .subhead {
+      font-size: 14px;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      background: #0f0f1a;
+      border: 1px solid #2a2a4a;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #f0a500;
+      color: #0f0f1a;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s, opacity 0.2s;
+    }
+
+    .btn-primary:hover { background: #e09500; }
+    .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    /* QUIZ */
+    .progress-wrap { margin-bottom: 28px; }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      background: #0f0f1a;
+      border-radius: 4px;
+      height: 5px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: #f0a500;
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+
+    .question-text {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .option {
+      background: #0f0f1a;
+      border: 2px solid #2a2a4a;
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: left;
+      color: #ddd;
+      transition: border-color 0.15s, background 0.15s;
+      line-height: 1.5;
+    }
+
+    .option:hover {
+      border-color: #f0a500;
+      background: #1e1e38;
+    }
+
+    .option.selected {
+      border-color: #f0a500;
+      background: #1e1e38;
+      color: #f0f0f0;
+    }
+
+    /* EMAIL */
+    .email-headline {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .email-sub {
+      font-size: 14px;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .form-group { margin-bottom: 10px; }
+
+    .form-group input {
+      display: block;
+      width: 100%;
+      padding: 13px 15px;
+      background: #0f0f1a;
+      border: 2px solid #2a2a4a;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #f0f0f0;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-group input:focus { border-color: #f0a500; }
+    .form-group input::placeholder { color: #555; }
+
+    .privacy {
+      text-align: center;
+      font-size: 11px;
+      color: #555;
+      margin-top: 12px;
+    }
+
+    /* RESULTS */
+    .tier-badge {
+      display: inline-block;
+      background: #f0a500;
+      color: #0f0f1a;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .score-display {
+      font-size: 56px;
+      font-weight: 800;
+      color: #f0a500;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .score-label {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 16px;
+    }
+
+    .score-bar-wrap {
+      background: #0f0f1a;
+      border-radius: 6px;
+      height: 8px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .score-bar-fill {
+      background: #f0a500;
+      height: 100%;
+      border-radius: 6px;
+      width: 0%;
+      transition: width 1.2s ease;
+    }
+
+    .tier-name {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .tier-blurb {
+      font-size: 14px;
+      color: #bbb;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #2a2a4a;
+      margin: 24px 0;
+    }
+
+    .plan-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .plan-body {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    /* SCREEN SWITCHING */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    .footer {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #444;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand">
+    <div class="brand-icon">🌙</div>
+    <div class="brand-name">AI on Nightshift</div>
+  </div>
+
+  <!-- LANDING -->
+  <div id="s-landing" class="screen active card">
+    <h1 class="headline">
+      Your business is probably losing 5 hours a week to tasks <em>AI could already handle.</em>
+    </h1>
+    <p class="subhead">
+      5 plain-English questions. No jargon. No selling. Find out exactly where you stand — and the first thing worth fixing.
+    </p>
+    <div class="badges">
+      <span class="badge">⏱ 2 minutes</span>
+      <span class="badge">5 questions</span>
+      <span class="badge">100% free</span>
+      <span class="badge">Instant results</span>
+    </div>
+    <button class="btn-primary" onclick="startQuiz()">Find Out Where You Stand →</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="s-quiz" class="screen card">
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span id="q-label">Question 1 of 5</span>
+        <span id="q-pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="q-fill"></div>
+      </div>
+    </div>
+    <p class="question-text" id="q-text"></p>
+    <div class="options" id="q-options"></div>
+    <button class="btn-primary" id="q-next" onclick="nextQuestion()" disabled>Next →</button>
+  </div>
+
+  <!-- EMAIL CAPTURE -->
+  <div id="s-email" class="screen card">
+    <h2 class="email-headline">Almost there.</h2>
+    <p class="email-sub">
+      Where should I send your free AI action plan? It's a short email with the first 3 things to tackle based on your score — no fluff, no course pitch.
+    </p>
+    <form id="email-form" onsubmit="submitEmail(event)">
+      <input type="hidden" name="score" id="f-score">
+      <input type="hidden" name="tier" id="f-tier">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your first name" required autocomplete="given-name">
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Your email address" required autocomplete="email">
+      </div>
+      <button class="btn-primary" type="submit" id="email-btn">Get My Free Action Plan →</button>
+    </form>
+    <p class="privacy">No spam. No sharing your data. Unsubscribe any time.</p>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="s-results" class="screen card">
+    <span class="tier-badge" id="r-badge">Stage 1</span>
+    <div class="score-display" id="g-num">0</div>
+    <div class="score-label">out of 100</div>
+    <div class="score-bar-wrap">
+      <div class="score-bar-fill" id="g-fill"></div>
+    </div>
+    <h2 class="tier-name" id="g-tier"></h2>
+    <p class="tier-blurb" id="g-blurb"></p>
+    <hr class="divider">
+    <p class="plan-title" id="e-title"></p>
+    <p class="plan-body" id="e-body"></p>
+    <a href="https://zcal.co/scottm/15min" class="btn-primary">Book a Free 15-Minute Call →</a>
+  </div>
+
+  <p class="footer">© 2026 AI on Nightshift · Scott Muir · Digital Made Simple</p>
+
+  <script>
+    const QUESTIONS = [
+      {
+        text: "How would you describe where you are with AI right now?",
+        options: [
+          { label: "I haven't really started — not sure where to begin", points: 5 },
+          { label: "I've had a go, but I don't use it consistently", points: 12 },
+          { label: "I use it regularly and it's already saving me time", points: 20 }
+        ]
+      },
+      {
+        text: "How long does creating a week's worth of content take you?",
+        options: [
+          { label: "Half a day or more — it genuinely wipes me out", points: 5 },
+          { label: "A couple of hours — it adds up and I resent it", points: 12 },
+          { label: "I've got a rough routine but it still feels like hard work", points: 20 }
+        ]
+      },
+      {
+        text: "When you've tried using AI for writing or content, what happened?",
+        options: [
+          { label: "I haven't tried it yet", points: 5 },
+          { label: "The output didn't sound like me, so I gave up", points: 12 },
+          { label: "It helped, but I haven't built it into a proper system yet", points: 20 }
+        ]
+      },
+      {
+        text: "How consistent is your business content right now?",
+        options: [
+          { label: "Sporadic — I post when I get round to it", points: 5 },
+          { label: "Patchy — some weeks good, some weeks nothing goes out", points: 12 },
+          { label: "Regular, but it takes more effort than it should", points: 20 }
+        ]
+      },
+      {
+        text: "What would make the biggest difference to your business this month?",
+        options: [
+          { label: "Knowing where to actually start with AI", points: 5 },
+          { label: "A system so content gets done every week without the grind", points: 12 },
+          { label: "Automating the routine tasks so I can focus on growth", points: 20 }
+        ]
+      }
+    ];
+
+    const MAX_SCORE = QUESTIONS.length * 20;
+
+    let currentQ = 0;
+    let totalScore = 0;
+    let selectedPoints = null;
+
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function startQuiz() {
+      currentQ = 0;
+      totalScore = 0;
+      renderQuestion();
+      show('s-quiz');
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[currentQ];
+      const pct = Math.round((currentQ / QUESTIONS.length) * 100);
+
+      document.getElementById('q-label').textContent = `Question ${currentQ + 1} of ${QUESTIONS.length}`;
+      document.getElementById('q-pct').textContent = pct + '%';
+      document.getElementById('q-fill').style.width = pct + '%';
+      document.getElementById('q-text').textContent = q.text;
+
+      const container = document.getElementById('q-options');
+      container.innerHTML = '';
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => selectOption(btn, opt.points));
+        container.appendChild(btn);
+      });
+
+      selectedPoints = null;
+      document.getElementById('q-next').disabled = true;
+    }
+
+    function selectOption(el, points) {
+      document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedPoints = points;
+      document.getElementById('q-next').disabled = false;
+    }
+
+    function nextQuestion() {
+      if (selectedPoints === null) return;
+      totalScore += selectedPoints;
+      currentQ++;
+
+      if (currentQ >= QUESTIONS.length) {
+        const pct = Math.round((totalScore / MAX_SCORE) * 100);
+        let badge, tierName;
+        if (pct >= 75)      { badge = 'Stage 3'; tierName = 'AI Operator'; }
+        else if (pct >= 50) { badge = 'Stage 2'; tierName = 'AI Explorer'; }
+        else                { badge = 'Stage 1'; tierName = 'AI Beginner'; }
+
+        document.getElementById('f-score').value = totalScore;
+        document.getElementById('f-tier').value  = badge + ' — ' + tierName;
+        show('s-email');
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function submitEmail(e) {
+      e.preventDefault();
+      const btn = document.getElementById('email-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      const data = new FormData(e.target);
+
+      fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      })
+      .then(() => showResults(totalScore))
+      .catch(() => showResults(totalScore));
+    }
+
+    function showResults(raw) {
+      const pct = Math.round((raw / MAX_SCORE) * 100);
+
+      let badge, tierName, tierBlurb, emailTitle, emailBody;
+
+      if (pct >= 75) {
+        badge      = 'Stage 3';
+        tierName   = 'AI Operator';
+        tierBlurb  = "You're ahead of most business owners. The tools are already working for you — the next move is building a system that runs without you thinking about it every week.";
+        emailTitle = "Here's how to go from using AI to running on AI.";
+        emailBody  = "I'll send you the 3 things that turn occasional AI use into a content system that produces every week without the grind.";
+      } else if (pct >= 50) {
+        badge      = 'Stage 2';
+        tierName   = 'AI Explorer';
+        tierBlurb  = "You're further along than most. The tools are there, but without a system around them the results stay patchy. That gap is smaller than you think.";
+        emailTitle = "Here's what closes the gap.";
+        emailBody  = "I'll send you the 3 things that turn inconsistent AI use into a weekly system — takes less than an hour to set up.";
+      } else {
+        badge      = 'Stage 1';
+        tierName   = 'AI Beginner';
+        tierBlurb  = "Most business owners are exactly here — so you're not behind, you're at the starting line. The right first move saves you months of trial and error.";
+        emailTitle = "Here's your free AI starter guide.";
+        emailBody  = "I'll send you the 3 things to set up first — no tech knowledge needed. Takes less than an hour and the difference is immediate.";
+      }
+
+      document.getElementById('r-badge').textContent   = badge;
+      document.getElementById('g-tier').textContent    = tierName;
+      document.getElementById('g-blurb').textContent   = tierBlurb;
+      document.getElementById('e-title').textContent   = emailTitle;
+      document.getElementById('e-body').textContent    = emailBody;
+      document.getElementById('f-tier').value          = badge + ' — ' + tierName;
+
+      const numEl  = document.getElementById('g-num');
+      const fillEl = document.getElementById('g-fill');
+      numEl.textContent    = '0';
+      fillEl.style.width   = '0%';
+
+      show('s-results');
+
+      setTimeout(() => {
+        fillEl.style.width = pct + '%';
+      }, 120);
+
+      let current = 0;
+      const step  = Math.max(1, Math.ceil(pct / 40));
+      const timer = setInterval(() => {
+        current = Math.min(current + step, pct);
+        numEl.textContent = current;
+        if (current >= pct) clearInterval(timer);
+      }, 30);
+    }
+  </script>
+
+</body>
+</html>
