@@ -47,16 +47,16 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 | Platform | Handle / Channel | Purpose | Frequency |
 |---|---|---|---|
 | LinkedIn | — | B2B lead gen — business owners, inbound DMs, discovery calls | 3x/week |
-| TikTok | @scott.aimade.simple | Audience building — working-class + AI | 14 videos/week |
+| TikTok | @scott.aimade.simple | Audience building — small business owners + AI | 14 videos/week |
 | YouTube | The Bloke's Guide to AI | AI tools in plain English, 40s/50s audience | Slow burn |
 | Instagram/Facebook | — | On hold — come back once LinkedIn/TikTok producing | — |
 
-**TikTok content pillars:**
-1. "AI on a night shift" — building with AI while working full-time
-2. AI tools explained simply — for everyday people, not tech people
-3. Building in public — real progress, real clients, no hype, no filter
-4. Anti-guru — honest takes on what AI can and can't do
-5. AI for everyone — automations, tools, and systems any normal person can use
+**TikTok niche sentence:** "I show small business owners how to use AI for their content — told by a bloke who's building it around night shifts, no fluff, no guru, just what actually works."
+
+**TikTok content pillars (3 only):**
+1. **The build** — AI content systems I'm building for real clients. Show the work, not the theory.
+2. **The tools** — One AI tool, one use case, one time-save. For small business owners specifically.
+3. **The story** — Building this around night shifts. Real progress, real setbacks, no filter.
 
 ---
 
