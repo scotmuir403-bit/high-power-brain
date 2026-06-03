@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Readiness Quiz | AI on Nightshift</title>
+  <title>AI Content Readiness Quiz | AI on Nightshift</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -304,10 +304,10 @@
   <!-- LANDING -->
   <div id="s-landing" class="screen active card">
     <h1 class="headline">
-      Your business is probably losing 5 hours a week to tasks <em>AI could already handle.</em>
+      Most small business owners waste 5+ hours a week on content <em>AI could write for them.</em>
     </h1>
     <p class="subhead">
-      5 plain-English questions. No jargon. No selling. Find out exactly where you stand — and the first thing worth fixing.
+      5 plain-English questions. No jargon. No selling. Find out if your business is ready for an AI content system — and what to tackle first.
     </p>
     <div class="badges">
       <span class="badge">⏱ 2 minutes</span>
@@ -338,7 +338,7 @@
   <div id="s-email" class="screen card">
     <h2 class="email-headline">Almost there.</h2>
     <p class="email-sub">
-      Where should I send your free AI action plan? It's a short email with the first 3 things to tackle based on your score — no fluff, no course pitch.
+      Where should I send your results? You'll get a short email with exactly what to do next based on your score — no fluff, no course pitch.
     </p>
     <form id="email-form" onsubmit="submitEmail(event)">
       <input type="hidden" name="score" id="f-score">
@@ -375,43 +375,43 @@
   <script>
     const QUESTIONS = [
       {
-        text: "How would you describe where you are with AI right now?",
+        text: "Which best describes your situation right now?",
         options: [
-          { label: "I haven't really started — not sure where to begin", points: 5 },
-          { label: "I've had a go, but I don't use it consistently", points: 12 },
-          { label: "I use it regularly and it's already saving me time", points: 20 }
+          { label: "I run a small business and I need to be more visible online — but content eats my time", points: 20 },
+          { label: "I work for myself or run a trade — social media's never really been my thing", points: 12 },
+          { label: "I'm exploring this but don't have a business up and running yet", points: 5 }
         ]
       },
       {
-        text: "How long does creating a week's worth of content take you?",
+        text: "How much time does content and social media actually cost you each week?",
         options: [
-          { label: "Half a day or more — it genuinely wipes me out", points: 5 },
-          { label: "A couple of hours — it adds up and I resent it", points: 12 },
-          { label: "I've got a rough routine but it still feels like hard work", points: 20 }
+          { label: "Too much — evenings and weekends trying to figure out what to post", points: 20 },
+          { label: "I try, but most weeks something gets in the way and nothing goes out", points: 12 },
+          { label: "I barely do it — I know I should, but it never happens", points: 5 }
         ]
       },
       {
-        text: "When you've tried using AI for writing or content, what happened?",
+        text: "Have you tried using AI to help with your business content?",
         options: [
-          { label: "I haven't tried it yet", points: 5 },
-          { label: "The output didn't sound like me, so I gave up", points: 12 },
-          { label: "It helped, but I haven't built it into a proper system yet", points: 20 }
+          { label: "Never tried it — honestly don't know where to start", points: 5 },
+          { label: "Tried it once or twice — got something generic and gave up", points: 12 },
+          { label: "Use it occasionally, but it still sounds like everyone else, not me", points: 20 }
         ]
       },
       {
-        text: "How consistent is your business content right now?",
+        text: "How consistent is your business on social media right now?",
         options: [
-          { label: "Sporadic — I post when I get round to it", points: 5 },
-          { label: "Patchy — some weeks good, some weeks nothing goes out", points: 12 },
-          { label: "Regular, but it takes more effort than it should", points: 20 }
+          { label: "Not at all — I post when I remember, which isn't often", points: 5 },
+          { label: "Patchy — some weeks decent, most weeks nothing goes out", points: 12 },
+          { label: "Regular, but it's a grind every single week to keep it going", points: 20 }
         ]
       },
       {
-        text: "What would make the biggest difference to your business this month?",
+        text: "What would actually move your business forward most right now?",
         options: [
-          { label: "Knowing where to actually start with AI", points: 5 },
-          { label: "A system so content gets done every week without the grind", points: 12 },
-          { label: "Automating the routine tasks so I can focus on growth", points: 20 }
+          { label: "Someone to set up an AI content system for me and show me how to use it", points: 20 },
+          { label: "A step-by-step guide I can work through myself", points: 12 },
+          { label: "Just want to understand what AI can actually do before committing to anything", points: 5 }
         ]
       }
     ];
@@ -473,9 +473,9 @@
       if (currentQ >= QUESTIONS.length) {
         const pct = Math.round((totalScore / MAX_SCORE) * 100);
         let badge, tierName;
-        if (pct >= 75)      { badge = 'Stage 3'; tierName = 'AI Operator'; }
-        else if (pct >= 50) { badge = 'Stage 2'; tierName = 'AI Explorer'; }
-        else                { badge = 'Stage 1'; tierName = 'AI Beginner'; }
+        if (pct >= 75)      { badge = 'Stage 3'; tierName = 'Content System Ready'; }
+        else if (pct >= 50) { badge = 'Stage 2'; tierName = 'One Step Away'; }
+        else                { badge = 'Stage 1'; tierName = 'Start Here'; }
 
         document.getElementById('f-score').value = totalScore;
         document.getElementById('f-tier').value  = badge + ' — ' + tierName;
@@ -509,22 +509,22 @@
 
       if (pct >= 75) {
         badge      = 'Stage 3';
-        tierName   = 'AI Operator';
-        tierBlurb  = "You're ahead of most business owners. The tools are already working for you — the next move is building a system that runs without you thinking about it every week.";
-        emailTitle = "Here's how to go from using AI to running on AI.";
-        emailBody  = "I'll send you the 3 things that turn occasional AI use into a content system that produces every week without the grind.";
+        tierName   = 'Content System Ready';
+        tierBlurb  = "You've got a real business, a real content problem, and you're at the point where the right setup sorts it permanently. An AI content system built around your business handles a week of posts in about 20 minutes — and sounds like you, not a robot.";
+        emailTitle = "Here's what I'd build for your business.";
+        emailBody  = "I'll send you the exact setup I use for clients — and how a Done-With-You session works if you want me to build it with you.";
       } else if (pct >= 50) {
         badge      = 'Stage 2';
-        tierName   = 'AI Explorer';
-        tierBlurb  = "You're further along than most. The tools are there, but without a system around them the results stay patchy. That gap is smaller than you think.";
+        tierName   = 'One Step Away';
+        tierBlurb  = "You're closer than you think. The problem's clear, AI's on your radar, but without a proper brief and a system around it the results stay patchy. That gap closes fast once you've got the right foundation.";
         emailTitle = "Here's what closes the gap.";
-        emailBody  = "I'll send you the 3 things that turn inconsistent AI use into a weekly system — takes less than an hour to set up.";
+        emailBody  = "I'll send you the business brief template — the one document that makes AI write in your voice instead of sounding like everyone else.";
       } else {
         badge      = 'Stage 1';
-        tierName   = 'AI Beginner';
-        tierBlurb  = "Most business owners are exactly here — so you're not behind, you're at the starting line. The right first move saves you months of trial and error.";
-        emailTitle = "Here's your free AI starter guide.";
-        emailBody  = "I'll send you the 3 things to set up first — no tech knowledge needed. Takes less than an hour and the difference is immediate.";
+        tierName   = 'Start Here';
+        tierBlurb  = "Most business owners land here, so you're not behind — you're at the start line. The right first move saves months of wasted effort trying things that don't work.";
+        emailTitle = "Here's your free AI content starter guide.";
+        emailBody  = "I'll send you the 3 things to sort before anything else — no tech knowledge needed. Takes less than an hour.";
       }
 
       document.getElementById('r-badge').textContent   = badge;
