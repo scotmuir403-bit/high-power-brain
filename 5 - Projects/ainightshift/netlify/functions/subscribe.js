@@ -76,5 +76,31 @@ exports.handler = async (event) => {
     console.error('Function error:', err.message);
   }
 
+  // Notify Scott by email via Resend
+  const resendKey = process.env.RESEND_API_KEY;
+  if (resendKey) {
+    const score = params.get('score') || '—';
+    try {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: 'quiz@ainightshift.co.uk',
+          to:   'scott@digital-madesimple.co.uk',
+          subject: `New quiz lead: ${name || email} — ${tier}`,
+          text: `New quiz submission\n\nName:  ${name}\nEmail: ${email}\nScore: ${score}\nTier:  ${tier}\nTime:  ${new Date().toUTCString()}`
+        })
+      });
+      console.log('Notification email sent');
+    } catch (mailErr) {
+      console.error('Email notification failed:', mailErr.message);
+    }
+  } else {
+    console.warn('RESEND_API_KEY not set — skipping notification email');
+  }
+
   return { statusCode: 200, body: 'OK' };
 };
