@@ -65,8 +65,8 @@ First Done-With-You client in closing stage ([[People/Scott Brodie]] — SafeSit
 
 ### TikTok bio (@scott.aimade.simple)
 ```
-I show working people
-How to use AI without the overwhelm
+I help small businesses use AI for content
+No tech skills needed. No fluff.
 Still on nightshift
 — building this on the side
 Take the 2-min quiz ⬇️
@@ -74,7 +74,7 @@ Take the 2-min quiz ⬇️
 
 ### LinkedIn headline
 ```
-49. Highway maintenance worker. Built an AI marketing team that installs itself in one prompt. No code. No developer. £18/month to run. | DM me TEAM for the free starter kit.
+49. Highway maintenance worker. Building AI content systems for small businesses on the side. Set up once, posts written every week. No code. £18/month. | DM me TEAM → free starter kit.
 ```
 > "Free starter kit" = the AI Business Brief Google Doc (see below). DM response flow must be set up in LinkedIn before this goes live.
 

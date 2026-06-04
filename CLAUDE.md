@@ -60,6 +60,26 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 
 ---
 
+## Platform bios
+
+**TikTok bio (@scott.aimade.simple):**
+```
+I help small businesses use AI for content
+No tech skills needed. No fluff.
+Still on nightshift
+— building this on the side
+Take the 2-min quiz ⬇️
+```
+
+**LinkedIn headline:**
+```
+49. Highway maintenance worker. Building AI content systems for small businesses on the side. Set up once, posts written every week. No code. £18/month. | DM me TEAM → free starter kit.
+```
+
+> Note: "free starter kit" = AI Business Brief Google Doc (ID: 1Mp7_cmYYC8V4zKyRSvgTtPzwT2VRTT1k2oNrWajeDo8). LinkedIn DM response flow must be set up before this bio goes live.
+
+---
+
 ## Brand voice
 
 **Sound like:** A bloke who's done the physical work, is still doing it, and is honest about where he actually is — not where he wishes he was.
