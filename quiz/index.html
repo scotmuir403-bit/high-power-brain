@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Readiness Quiz | AI on Nightshift</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #080d1a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 580px;
+        }
+
+        /* Screens */
+        .screen { display: none; animation: fadeUp 0.4s ease; }
+        .screen.active { display: block; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Brand */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            background: #f97316;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        .brand-name {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #e5e7eb;
+        }
+
+        /* Landing */
+        .hero-eyebrow {
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #f97316;
+            margin-bottom: 16px;
+        }
+        .hero-title {
+            font-size: 38px;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+        .hero-title em {
+            color: #f97316;
+            font-style: normal;
+        }
+        .hero-body {
+            font-size: 17px;
+            color: #9ca3af;
+            line-height: 1.65;
+            margin-bottom: 32px;
+        }
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .pill {
+            padding: 6px 14px;
+            border: 1px solid #1e2d40;
+            border-radius: 99px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.1s ease, background 0.2s;
+        }
+        .btn-orange {
+            background: #f97316;
+            color: #fff;
+        }
+        .btn-orange:hover { background: #ea6c0a; transform: translateY(-1px); }
+        .btn-orange:active { transform: translateY(0); }
+
+        /* Quiz header */
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .progress-wrap { flex: 1; margin-right: 20px; }
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+        .progress-track {
+            height: 5px;
+            background: #1a2540;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f97316, #fb923c);
+            border-radius: 99px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        /* Score chip */
+        .score-chip {
+            background: #111827;
+            border: 1px solid #1e2d40;
+            border-radius: 12px;
+            padding: 10px 16px;
+            text-align: center;
+            min-width: 72px;
+        }
+        .score-chip-label {
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 2px;
+        }
+        .score-chip-value {
+            font-size: 22px;
+            font-weight: 900;
+            color: #f97316;
+            line-height: 1;
+        }
+
+        /* Question */
+        .question-card {
+            background: #0f1829;
+            border: 1px solid #1e2d40;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 16px;
+        }
+        .question-tag {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #f97316;
+            margin-bottom: 12px;
+        }
+        .question-text {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* Options */
+        .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+        .opt {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 15px 18px;
+            background: #0f1829;
+            border: 2px solid #1e2d40;
+            border-radius: 12px;
+            color: #e5e7eb;
+            font-size: 15px;
+            cursor: pointer;
+            transition: border-color 0.15s, background 0.15s;
+            text-align: left;
+            width: 100%;
+        }
+        .opt:hover { border-color: #f97316; background: #141f35; }
+        .opt.chosen { border-color: #f97316; background: #141f35; }
+        .opt.chosen .opt-letter { background: #f97316; color: #fff; }
+        .opt-letter {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #1e2d40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #9ca3af;
+            flex-shrink: 0;
+            transition: background 0.15s;
+        }
+
+        /* Insight */
+        .insight {
+            background: #0a1f0e;
+            border: 1px solid #14532d;
+            border-left: 3px solid #22c55e;
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 14px;
+            display: none;
+        }
+        .insight.show {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+        .insight-eyebrow {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 5px;
+        }
+        .insight-body {
+            font-size: 14px;
+            color: #bbf7d0;
+            line-height: 1.55;
+        }
+
+        /* Next btn */
+        .btn-next {
+            display: none;
+            width: 100%;
+            padding: 16px;
+            background: #f97316;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-next.show {
+            display: block;
+            animation: fadeUp 0.3s ease;
+        }
+        .btn-next:hover { background: #ea6c0a; }
+
+        /* Results */
+        .results-eyebrow {
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: #f97316;
+            margin-bottom: 12px;
+        }
+        .results-headline {
+            font-size: 30px;
+            font-weight: 900;
+            margin-bottom: 28px;
+        }
+
+        .gauge-card {
+            background: #0f1829;
+            border: 1px solid #1e2d40;
+            border-radius: 18px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .gauge-number {
+            font-size: 80px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .gauge-denom {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        .gauge-bar-track {
+            height: 10px;
+            background: #1a2540;
+            border-radius: 99px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .gauge-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 1.4s ease;
+            width: 0%;
+        }
+        .gauge-tier {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .gauge-blurb {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        /* Tiers */
+        .tier-starter .gauge-number, .tier-starter .gauge-tier { color: #60a5fa; }
+        .tier-starter .gauge-bar-fill { background: linear-gradient(90deg,#3b82f6,#60a5fa); }
+        .tier-curious .gauge-number, .tier-curious .gauge-tier { color: #fbbf24; }
+        .tier-curious .gauge-bar-fill { background: linear-gradient(90deg,#f59e0b,#fbbf24); }
+        .tier-ready .gauge-number, .tier-ready .gauge-tier { color: #4ade80; }
+        .tier-ready .gauge-bar-fill { background: linear-gradient(90deg,#22c55e,#4ade80); }
+
+        /* Email section */
+        .email-card {
+            background: #0f1829;
+            border: 1px solid #1e2d40;
+            border-radius: 18px;
+            padding: 28px;
+        }
+        .email-card-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .email-card-body {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .email-field {
+            width: 100%;
+            padding: 15px 16px;
+            background: #080d1a;
+            border: 2px solid #1e2d40;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .email-field:focus { border-color: #f97316; }
+        .email-field::placeholder { color: #374151; }
+        .email-field.error { border-color: #ef4444; }
+        .privacy {
+            font-size: 12px;
+            color: #374151;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Thank you */
+        .ty-wrap {
+            text-align: center;
+            padding: 48px 0;
+        }
+        .ty-tick {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+        .ty-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 14px;
+        }
+        .ty-body {
+            font-size: 16px;
+            color: #9ca3af;
+            line-height: 1.65;
+            margin-bottom: 32px;
+        }
+        .ty-link {
+            color: #f97316;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .ty-link:hover { text-decoration: underline; }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 30px; }
+            .question-text { font-size: 18px; }
+            .gauge-number { font-size: 64px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- LANDING -->
+    <div class="screen active" id="s-land">
+        <div class="brand">
+            <div class="brand-icon">🌙</div>
+            <div class="brand-name">AI on Nightshift</div>
+        </div>
+        <div class="hero-eyebrow">Free 2-Minute Quiz</div>
+        <h1 class="hero-title">Could AI save your business <em>5 hours a week?</em></h1>
+        <p class="hero-body">5 plain-English questions. No jargon. No selling.<br>Find out exactly where you sit with AI — and what to do about it.</p>
+        <div class="hero-pills">
+            <span class="pill">⏱ 2 minutes</span>
+            <span class="pill">5 questions</span>
+            <span class="pill">100% free</span>
+            <span class="pill">Instant results</span>
+        </div>
+        <button class="btn btn-orange" onclick="startQuiz()">Find Out Your AI Score →</button>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="screen" id="s-quiz">
+        <div class="brand">
+            <div class="brand-icon">🌙</div>
+            <div class="brand-name">AI on Nightshift</div>
+        </div>
+        <div class="quiz-header">
+            <div class="progress-wrap">
+                <div class="progress-meta">
+                    <span id="q-label">Question 1 of 5</span>
+                    <span id="q-pct">0% complete</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="prog-fill"></div>
+                </div>
+            </div>
+            <div class="score-chip">
+                <div class="score-chip-label">Score</div>
+                <div class="score-chip-value" id="score-val">0</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-tag" id="q-tag">Question 1</div>
+            <div class="question-text" id="q-text"></div>
+        </div>
+
+        <div class="options" id="opts"></div>
+
+        <div class="insight" id="insight-box">
+            <div class="insight-eyebrow">Quick Insight</div>
+            <div class="insight-body" id="insight-text"></div>
+        </div>
+
+        <button class="btn-next" id="btn-next" onclick="advance()"></button>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="screen" id="s-results">
+        <div class="brand">
+            <div class="brand-icon">🌙</div>
+            <div class="brand-name">AI on Nightshift</div>
+        </div>
+        <div class="results-eyebrow">Your Results</div>
+        <h2 class="results-headline" id="r-headline"></h2>
+
+        <div class="gauge-card" id="gauge-card">
+            <div class="gauge-number" id="g-num">0</div>
+            <div class="gauge-denom">out of 100</div>
+            <div class="gauge-bar-track">
+                <div class="gauge-bar-fill" id="g-fill"></div>
+            </div>
+            <div class="gauge-tier" id="g-tier"></div>
+            <div class="gauge-blurb" id="g-blurb"></div>
+        </div>
+
+        <div class="email-card">
+            <div class="email-card-title" id="e-title"></div>
+            <div class="email-card-body" id="e-body"></div>
+            <button class="btn btn-orange" id="btn-cta" onclick="goToSignup()">Get My Free Plan →</button>
+            <div class="privacy">No spam. No sharing your data. Unsubscribe any time.</div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+const QS = [
+    {
+        q: "How would you describe where you're at with AI right now?",
+        opts: [
+            { l:"A", t:"Haven't touched it — don't know where to start", pts:5 },
+            { l:"B", t:"I've tried ChatGPT a couple of times but nothing stuck", pts:15 },
+            { l:"C", t:"I use it a bit but I'm not really getting much from it", pts:25 },
+            { l:"D", t:"I use it regularly and want to do more with it", pts:40 }
+        ],
+        insights: [
+            "You're in the majority — most business owners are at exactly this point. The good news: getting started is faster than you think.",
+            "Further than most people admit. The gap between 'tried it' and 'consistent results' is usually just one clear workflow.",
+            "This is the most common stuck point. The problem usually isn't the AI — it's not having a repeatable system around it.",
+            "You're ahead of roughly 80% of business owners. The next step is removing yourself from the process so it runs without thinking."
+        ]
+    },
+    {
+        q: "What's your biggest frustration with content for your business?",
+        opts: [
+            { l:"A", t:"I never post — I just never get round to it", pts:5 },
+            { l:"B", t:"I post sometimes but it's all over the place", pts:15 },
+            { l:"C", t:"I don't know what to say or how to say it", pts:20 },
+            { l:"D", t:"I'm posting but it's not bringing in any business", pts:25 }
+        ],
+        insights: [
+            "This usually isn't a motivation issue — it's a friction issue. When posting takes 10 minutes instead of an hour, it actually gets done.",
+            "Inconsistency is what kills reach on every platform. A simple weekly rhythm beats a big burst every few months every time.",
+            "This is exactly what AI handles best. Once it knows your voice, the blank page problem disappears almost completely.",
+            "Content without a clear purpose is just noise. Your score will show whether this is a targeting problem or a system problem."
+        ]
+    },
+    {
+        q: "What kind of business do you run?",
+        opts: [
+            { l:"A", t:"Tradesperson or contractor", pts:10 },
+            { l:"B", t:"Local service business (salon, gym, retail, etc.)", pts:10 },
+            { l:"C", t:"Consultant or freelancer", pts:10 },
+            { l:"D", t:"Something else or still building", pts:10 }
+        ],
+        insights: [
+            "Trades are one of the highest-opportunity areas for AI content right now. Almost nobody in the space is doing it well — the bar is low.",
+            "Local businesses that post consistently still outperform their competitors by a wide margin. Most don't bother.",
+            "Consultants and freelancers who build a content system typically reclaim 3–5 hours a week. That's a full working day per month.",
+            "Wherever you're starting from, the fundamentals are identical. You're asking the right questions at the right time."
+        ]
+    },
+    {
+        q: "How much time do you spend trying to sort content each week?",
+        opts: [
+            { l:"A", t:"Basically none — because I've given up trying", pts:5 },
+            { l:"B", t:"An hour or two but I hate every minute of it", pts:15 },
+            { l:"C", t:"Way longer than it should take", pts:20 },
+            { l:"D", t:"I've paid someone before and it wasn't worth it", pts:25 }
+        ],
+        insights: [
+            "Giving up usually means the effort wasn't worth the return. A good AI workflow changes that equation completely.",
+            "An hour of painful content work can become 10–15 minutes with the right setup. That's not an exaggeration.",
+            "If it's eating your time, that's a systems failure — not a creativity failure. There's a specific fix for this.",
+            "Outsourcing content without a clear strategy almost always fails. AI-assisted content in your own voice lands differently."
+        ]
+    },
+    {
+        q: "If someone set up a system that wrote your weekly content for you — would you pay for that?",
+        opts: [
+            { l:"A", t:"Yes, if the price was right", pts:30 },
+            { l:"B", t:"Maybe — I'd want to see exactly what I'm getting", pts:20 },
+            { l:"C", t:"Probably not — I'd rather figure it out myself", pts:5 },
+            { l:"D", t:"No budget for it right now", pts:5 }
+        ],
+        insights: [
+            "That's the right mindset. A well-built content system typically pays for itself in new leads within the first few weeks.",
+            "Fair enough — your results will show exactly what a system like this looks like in practice.",
+            "Totally valid. Your results will give you the clearest starting point for building it yourself, at no cost.",
+            "Understood. Your results will point you toward the moves you can make right now without spending anything."
+        ]
+    }
+];
+
+const MAX_SCORE = 130;
+let cur = 0, total = 0, chosen = null;
+
+function show(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function startQuiz() {
+    show('s-quiz');
+    loadQ(0);
+}
+
+function loadQ(i) {
+    chosen = null;
+    const q = QS[i];
+    const pct = Math.round((i / QS.length) * 100);
+
+    document.getElementById('q-label').textContent = `Question ${i+1} of ${QS.length}`;
+    document.getElementById('q-pct').textContent = `${pct}% complete`;
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('q-tag').textContent = `Question ${i+1}`;
+    document.getElementById('q-text').textContent = q.q;
+
+    const opts = document.getElementById('opts');
+    opts.innerHTML = '';
+    q.opts.forEach((o, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.innerHTML = `<span class="opt-letter">${o.l}</span>${o.t}`;
+        btn.onclick = () => pick(idx, btn);
+        opts.appendChild(btn);
+    });
+
+    document.getElementById('insight-box').classList.remove('show');
+    const nx = document.getElementById('btn-next');
+    nx.classList.remove('show');
+}
+
+function pick(idx, btn) {
+    if (chosen !== null) return;
+    chosen = idx;
+
+    document.querySelectorAll('.opt').forEach(b => b.classList.remove('chosen'));
+    btn.classList.add('chosen');
+
+    total += QS[cur].opts[idx].pts;
+    animScore();
+
+    document.getElementById('insight-text').textContent = QS[cur].insights[idx];
+    document.getElementById('insight-box').classList.add('show');
+
+    const nx = document.getElementById('btn-next');
+    nx.textContent = cur === QS.length - 1 ? 'See My Results →' : 'Next Question →';
+    nx.classList.add('show');
+}
+
+function animScore() {
+    const el = document.getElementById('score-val');
+    const normalised = Math.round((total / MAX_SCORE) * 100);
+    let v = parseInt(el.textContent) || 0;
+    const diff = normalised - v;
+    const steps = 25;
+    let s = 0;
+    const t = setInterval(() => {
+        s++;
+        el.textContent = Math.round(v + (diff * s / steps));
+        if (s >= steps) clearInterval(t);
+    }, 24);
+}
+
+function advance() {
+    if (chosen === null) return;
+    cur++;
+    if (cur >= QS.length) { showResults(); return; }
+    loadQ(cur);
+}
+
+function showResults() {
+    const score = Math.round((total / MAX_SCORE) * 100);
+    show('s-results');
+
+    let tierClass, tier, blurb, eTitle, eBody;
+
+    if (score < 40) {
+        tierClass = 'tier-starter';
+        tier      = 'Just Getting Started';
+        blurb     = "You're at the starting line — which is exactly where most people are. The right first move will save you months of trial and error.";
+        eTitle    = "Here's your free AI starter guide.";
+        eBody     = "I'll send you the 3 things to set up first — no tech knowledge needed. Takes less than an hour and you'll see the difference immediately.";
+    } else if (score < 70) {
+        tierClass = 'tier-curious';
+        tier      = 'AI Curious';
+        blurb     = "You've got awareness but not a system yet. You're closer than you think — the missing piece is a repeatable workflow, not more knowledge.";
+        eTitle    = "You're one system away from saving hours every week.";
+        eBody     = "I'll send you a simple content workflow built around your answers — practical, plain English, ready to use this week.";
+    } else {
+        tierClass = 'tier-ready';
+        tier      = 'Ready to Systemise';
+        blurb     = "You've got the knowledge, the motivation, and a clear problem. You don't need more learning — you need the system built and running.";
+        eTitle    = "You're ready. Let's build your system.";
+        eBody     = "Based on your answers, I'll send you a personalised breakdown. If it makes sense to talk, there'll be a link to book a free call.";
+    }
+
+    document.getElementById('r-headline').textContent = `Your AI Readiness Score: ${score}/100`;
+    document.getElementById('gauge-card').className = 'gauge-card ' + tierClass;
+    document.getElementById('g-tier').textContent = tier;
+    document.getElementById('g-blurb').textContent = blurb;
+    document.getElementById('e-title').textContent = eTitle;
+    document.getElementById('e-body').textContent  = eBody;
+
+    setTimeout(() => {
+        document.getElementById('g-fill').style.width = score + '%';
+        const el = document.getElementById('g-num');
+        let v = 0;
+        const t = setInterval(() => {
+            v += 2;
+            if (v >= score) { v = score; clearInterval(t); }
+            el.textContent = v;
+        }, 20);
+    }, 300);
+}
+
+function goToSignup() {
+    const score = Math.round((total / MAX_SCORE) * 100);
+    const tier  = score >= 70 ? 'ready' : score >= 40 ? 'curious' : 'starter';
+    const params = new URLSearchParams({ score, tier });
+    window.location.href = `https://www.digital-madesimple.co.uk/aiquestions?${params.toString()}`;
+}
+</script>
+</body>
+</html>
