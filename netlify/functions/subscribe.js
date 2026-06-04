@@ -9,6 +9,12 @@ exports.handler = async (event) => {
   const score   = params.get('score') || '—';
   const tier    = params.get('tier') || '';
 
+  let answersText = '';
+  try {
+    const answers = JSON.parse(params.get('answers') || '[]');
+    answersText = answers.map((a, i) => `Q${i+1}: ${a.q}\n    → ${a.a}`).join('\n\n');
+  } catch(e) {}
+
   if (!email) return { statusCode: 400, body: 'Email required' };
 
   // tier format: "Stage 1 — Start Here" / "Stage 2 — One Step Away" / "Stage 3 — Content System Ready"
@@ -77,7 +83,7 @@ exports.handler = async (event) => {
           from:    'quiz@ainightshift.co.uk',
           to:      'scott@digital-madesimple.co.uk',
           subject: `New quiz lead: ${name || email} — ${stageKey}`,
-          text:    `New quiz submission\n\nName:  ${name}\nEmail: ${email}\nScore: ${score}/100\nTier:  ${tier}\nTime:  ${new Date().toUTCString()}`
+          text:    `New quiz lead\n\nName:  ${name}\nEmail: ${email}\nScore: ${score}/100\nTier:  ${tier}\nTime:  ${new Date().toUTCString()}\n\n--- Their answers ---\n\n${answersText}`
         })
       });
       console.log('Notification sent to Scott');
