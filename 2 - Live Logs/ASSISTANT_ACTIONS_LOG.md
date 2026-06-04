@@ -22,3 +22,21 @@
 ```
 
 ## Log
+
+---
+- **Date:** 2026-06-04
+- **Action:** Full TikTok niche strategy session — niche sentence, content pillars, 5 scripts, CLAUDE.md update, quiz overhaul, email sequences, Business Brief doc
+- **Context:** Scott came in confused about his TikTok direction and wanted to fix everything in one session
+- **Outcome:**
+  - Niche sentence written and added to CLAUDE.md: "I show small business owners how to use AI for their content — told by a bloke who's building it around night shifts..."
+  - TikTok content pillars reduced from 5 to 3: The Build / The Tools / The Story
+  - 5 full TikTok scripts written using Hook Pro + Script Clubhouse frameworks
+  - Platform bios recorded in CLAUDE.md (TikTok + LinkedIn)
+  - ainightshift.co.uk quiz fully overhauled: inline email capture, Netlify function with correct Systeme.io tag routing per stage, Resend notification email including all Q&A answers
+  - AI Business Brief Google Doc created (ID: `1Mp7_cmYYC8V4zKyRSvgTtPzwT2VRTT1k2oNrWajeDo8`)
+  - Email sequences Google Doc created (ID: `1YnY8ZEGtPutA2GcWAX9fQ5X_tLd0MwBUBMGKIca0jl4`) — Brief email + Stage 1/2/3 sequences
+  - Digital Made Simple.md updated in Obsidian vault with all of the above
+  - CLAUDE.md updated and pushed (PR #7 open, both Netlify previews green)
+- **Undo:** Revert quiz-live branch to pre-session state; delete the two Google Docs; revert CLAUDE.md
+- **Related:** [[5 - Projects/Digital Made Simple]], quiz-live branch, ainightshift.co.uk
+---
