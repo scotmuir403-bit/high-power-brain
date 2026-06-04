@@ -60,6 +60,26 @@ Why: financial freedom, dignity, proving it's possible for working-class men in 
 
 ---
 
+## Platform bios
+
+**TikTok bio (@scott.aimade.simple):**
+```
+I show working people
+How to use AI without the overwhelm
+Still on nightshift
+— building this on the side
+Take the 2-min quiz ⬇️
+```
+
+**LinkedIn headline / bio:**
+```
+49. Highway maintenance worker. Built an AI marketing team that installs itself in one prompt. No code. No developer. £18/month to run. | DM me TEAM for the free starter kit.
+```
+
+> Note: "free starter kit" = the AI Business Brief doc (Google Doc ID: 1Mp7_cmYYC8V4zKyRSvgTtPzwT2VRTT1k2oNrWajeDo8). Make sure DM response is set up in LinkedIn before publishing.
+
+---
+
 ## Brand voice
 
 **Sound like:** A bloke who's done the physical work, is still doing it, and is honest about where he actually is — not where he wishes he was.
