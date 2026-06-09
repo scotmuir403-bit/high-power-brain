@@ -240,7 +240,7 @@ header{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 2
 
 <script>
 var PROXY = '/api/apify';
-var ACTOR = 'compass~google-maps-scraper';
+var ACTOR = 'apify~google-maps-scraper';
 var leads = [], filter = 'all', dmLead = null, dmTab = 'free';
 var contacted = [];
 try { contacted = JSON.parse(localStorage.getItem('wms_contacted') || '[]'); } catch(e) {}
