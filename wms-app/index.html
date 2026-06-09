@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Made Simple — Lead Finder</title>
+<title>Sites Sorted — Lead Finder</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#0a0a0a;--surface:#141414;--surface2:#1c1c1c;--border:#282828;--border2:#333;--accent:#f0b429;--accent-dim:rgba(240,180,41,0.12);--text:#f0ede8;--muted:#5a5a5a;--muted2:#888;--green:#2dd4a0;--green-dim:rgba(45,212,160,0.1);--red:#f05252;--red-dim:rgba(240,82,82,0.1);--blue:#5b9cf6;--blue-dim:rgba(91,156,246,0.1);--radius:10px;--radius-lg:14px;}
@@ -487,9 +487,9 @@ function switchTab(tab, btn) {
 function buildDM(lead, type) {
   var cat = (lead.category || 'local business').toLowerCase();
   if (type === 'free') {
-    return 'Hi there 👋\n\nI came across ' + lead.name + ' on Google and noticed you don\'t have a website yet.\n\nI\'m Scott — I run a local web design service in East Glasgow called Web Made Simple.\n\nI\'m currently building a small number of free websites for local businesses to build up my portfolio, and I thought you\'d be a great fit.\n\nNo catch. Here\'s what you\'d get:\n— A clean, professional website built for free\n— Your services, contact details and location all on there\n— Set up on a proper domain (you just cover the domain cost — around £12/year)\n\nAll I\'d ask in return is an honest review if you\'re happy with it.\n\nA lot of customers in this area Google for a ' + cat + ' before they pick up the phone — having a website there can make a real difference.\n\nWould you be open to a quick chat? No pressure at all.\n\n— Scott\nWeb Made Simple';
+    return 'Hi there 👋\n\nI came across ' + lead.name + ' on Google and noticed you don\'t have a website yet.\n\nI\'m Scott — I run a local web design service in East Glasgow called Sites Sorted.\n\nI\'m currently building a small number of free websites for local businesses to build up my portfolio, and I thought you\'d be a great fit.\n\nNo catch. Here\'s what you\'d get:\n— A clean, professional website built for free\n— Your services, contact details and location all on there\n— Set up on a proper domain (you just cover the domain cost — around £12/year)\n\nAll I\'d ask in return is an honest review if you\'re happy with it.\n\nA lot of customers in this area Google for a ' + cat + ' before they pick up the phone — having a website there can make a real difference.\n\nWould you be open to a quick chat? No pressure at all.\n\n— Scott\nSites Sorted';
   }
-  return 'Hi there 👋\n\nI came across ' + lead.name + ' on Google — noticed you don\'t have a website and wanted to reach out.\n\nI\'m Scott. I run Web Made Simple — a local web design service for small businesses in East Glasgow.\n\nI build clean, professional websites for local traders. No templates, no page builders — a proper site made for your business.\n\nWhat\'s included for a one-off cost of £497:\n— Fully custom website built around your business\n— Services, photos, contact details and location\n— Set up on your own domain\n— Mobile-friendly and ready to be found on Google\n— Delivered within 7 days\n\nNo monthly fees. No subscriptions. You own it outright.\n\nWorth a quick 10-minute chat this week?\n\n— Scott\nWeb Made Simple';
+  return 'Hi there 👋\n\nI came across ' + lead.name + ' on Google — noticed you don\'t have a website and wanted to reach out.\n\nI\'m Scott. I run Sites Sorted — a local web design service for small businesses in East Glasgow.\n\nI build clean, professional websites for local traders. No templates, no page builders — a proper site made for your business.\n\nWhat\'s included for a one-off cost of £497:\n— Fully custom website built around your business\n— Services, photos, contact details and location\n— Set up on your own domain\n— Mobile-friendly and ready to be found on Google\n— Delivered within 7 days\n\nNo monthly fees. No subscriptions. You own it outright.\n\nWorth a quick 10-minute chat this week?\n\n— Scott\nSites Sorted';
 }
 
 function openBrief(id) {
