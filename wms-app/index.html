@@ -197,6 +197,8 @@ header{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 2
         <div class="filters">
           <button class="fbtn active" onclick="setFilter('all',this)">All</button>
           <button class="fbtn" onclick="setFilter('no_website',this)">⚡ No Website</button>
+          <button class="fbtn" onclick="setFilter('has_social',this)">📱 Has Social</button>
+          <button class="fbtn" onclick="setFilter('no_web_has_social',this)">🔥 No Web + Social</button>
           <button class="fbtn" onclick="setFilter('pending',this)">Not Contacted</button>
           <button class="fbtn" onclick="setFilter('contacted',this)">✓ Done</button>
         </div>
@@ -326,6 +328,27 @@ async function runSearch() {
   }
 }
 
+function extractSocial(item) {
+  var links = {};
+  var patterns = { facebook: /facebook\.com/i, instagram: /instagram\.com/i, twitter: /twitter\.com|x\.com/i, linkedin: /linkedin\.com/i, youtube: /youtube\.com/i, tiktok: /tiktok\.com/i };
+  var sources = [];
+  if (item.socialMediaLinks) {
+    if (Array.isArray(item.socialMediaLinks)) sources = sources.concat(item.socialMediaLinks);
+    else if (typeof item.socialMediaLinks === 'object') sources = sources.concat(Object.values(item.socialMediaLinks));
+  }
+  ['facebookUrl','instagramUrl','twitterUrl','linkedinUrl','youtubeUrl','tiktokUrl'].forEach(function(k){ if (item[k]) sources.push(item[k]); });
+  if (item.additionalInfo) {
+    try { var s = JSON.stringify(item.additionalInfo); sources.push(s); } catch(e){}
+  }
+  sources.forEach(function(s) {
+    if (!s || typeof s !== 'string') return;
+    Object.keys(patterns).forEach(function(net) {
+      if (!links[net] && patterns[net].test(s)) links[net] = s.startsWith('http') ? s : null;
+    });
+  });
+  return links;
+}
+
 function processResults(items, trade) {
   leads = items.map(function(item, i) {
     var web = (item.website || '').trim();
@@ -348,6 +371,7 @@ function processResults(items, trade) {
       category: item.categoryName || trade,
       photos: photos, reviewTexts: reviewTexts,
       openingHours: item.openingHours || [],
+      social: extractSocial(item),
       contacted: contacted.indexOf(id) >= 0
     };
   }).filter(Boolean).sort(function(a,b){
@@ -368,6 +392,8 @@ function processResults(items, trade) {
 function getFiltered() {
   return leads.filter(function(l){
     if (filter === 'no_website') return !l.hasWebsite;
+    if (filter === 'has_social') return Object.keys(l.social||{}).length > 0;
+    if (filter === 'no_web_has_social') return !l.hasWebsite && Object.keys(l.social||{}).length > 0;
     if (filter === 'pending') return !l.contacted;
     if (filter === 'contacted') return l.contacted;
     return true;
@@ -395,6 +421,10 @@ function renderLeads() {
         (!lead.hasWebsite ? '<span class="badge b-red">⚡ No Website</span>' : '<span class="badge b-muted">Has Website</span>') +
         (lead.category ? '<span class="badge b-blue">' + esc(lead.category) + '</span>' : '') +
         (lead.photos && lead.photos.length ? '<span class="badge b-amber">📷 ' + lead.photos.length + '</span>' : '') +
+        (lead.social && lead.social.facebook ? '<span class="badge b-blue">FB</span>' : '') +
+        (lead.social && lead.social.instagram ? '<span class="badge b-blue">IG</span>' : '') +
+        (lead.social && lead.social.tiktok ? '<span class="badge b-blue">TT</span>' : '') +
+        (lead.social && lead.social.linkedin ? '<span class="badge b-blue">LI</span>' : '') +
         (lead.contacted ? '<span class="badge b-green">✓ Done</span>' : '') +
       '</div>' +
       '<div class="card-meta">' +
