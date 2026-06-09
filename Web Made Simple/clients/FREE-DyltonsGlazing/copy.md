@@ -1,8 +1,8 @@
 # Copy — Dylton's Glazing & Joinery
 
 ## Meta
-- Title: Dylton's Glazing & Joinery | Glazing & Joinery in Glasgow
-- Description: Glasgow's 4.9-star glazing and joinery specialists. Windows, doors, double glazing and emergency repairs across East Glasgow. Call 07379 726166.
+- Title: Dylton's Glazing & Joinery | Doors, Glazing & Security in Glasgow
+- Description: Glasgow's 4.9-star doors, glazing and security specialists. Windows, locks, alarms, CCTV and emergency call-outs across East Glasgow. Call 07379 726166.
 
 ## Header
 - Brand: Dylton's Glazing / & Joinery · Glasgow
@@ -10,41 +10,43 @@
 
 ## Hero
 - Social proof badge: ★★★★★ 4.9 stars · 113 Google reviews
-- H1: Glasgow's Trusted / Glazing & Joinery / Specialists
-- Subheadline: Windows. Doors. Double Glazing. Emergency Repairs. East Glasgow's most trusted team — done right, first time.
+- H1: Glasgow's Trusted / Doors, Glazing / & Security Team
+- Subheadline: Windows. Doors. Locks. Alarms. CCTV. Emergency Call-Outs. East Glasgow's most trusted team — fast response, honest prices.
 - CTA 1: Call Now
 - CTA 2: WhatsApp Us
 
 ## Trust Bar
 - 4.9★ / Google Rating
 - 113 / Verified Reviews
-- East Glasgow / Local & Trusted
+- 20 Mins / Emergency Response
 - Free / Quotes & Estimates
 
 ## Services
-Intro: From emergency glass repairs to full window and door replacements — we handle it all, fast and properly.
+Intro: Windows, doors, locks, alarms, CCTV — Tony handles the lot. One call, one trusted tradesman, job done.
 
-1. Window Replacement — Old, draughty, or broken windows replaced properly. Double glazing that actually keeps the heat in.
-2. Door Installation — UPVC, composite and timber doors. Front doors, back doors, patio doors — supply and fit.
-3. Emergency Glass Repairs — Broken window or door glass? We'll get it sorted fast — same day where possible.
-4. Double Glazing — Cut your heating bills. Modern double glazing installed by a team with 4.9 stars on Google.
-5. Bifold & Patio Doors — Open up your living space. Bifold and sliding patio doors fitted to a high finish.
-6. Joinery Work — Frames, sills, architraves — all the joinery to finish the job right. No shortcuts.
+1. Window & Door Glazing — Broken glass, draughty frames, or a full replacement — sorted properly with quality materials.
+2. Door Installation & Repair — UPVC, composite and timber doors fitted or repaired. Internal and external — supply and fit available.
+3. Lock Replacement & Repair — Locks worn, jammed, or compromised? Fast, reliable replacement with quality hardware fitted right.
+4. Alarm Systems — Home and business alarms installed and set up properly — app-controlled, explained clearly, no faff.
+5. CCTV Installation — Camera systems that actually work. Tony advises on what you need, installs it, and shows you how to use it.
+6. Emergency Call-Out — Locked out? Broken door? 7 days a week, often on-site within 20 minutes. Just call.
 
 [NOTE: Confirm full service list with client before launch]
 
 ## About / Why Us
-Heading: The Glasgow Glaziers People Actually Recommend
-Intro: 113 reviews. 4.9 stars. That's not luck — that's a team that turns up on time, does the job right, and leaves your home the way they found it.
+Heading: The Glasgow Tradesman People Actually Recommend
+Intro: 113 reviews. 4.9 stars. That's Tony — one man, one standard, turns up fast and gets it done properly every time.
 
 Points:
-- Local to East Glasgow — We know the area. We're not a call centre farming jobs out — you deal with the same team start to finish.
-- No hard sell, no hidden costs — We quote what the job costs. No surprises when the invoice arrives.
-- Tidy, professional, on time — We treat your home with respect. Everything cleaned up, no mess left behind.
-- 4.9 stars from 113 real customers — Check our Google reviews — they'll tell you more than we can.
+- Fast response — often within 20 minutes — Emergencies don't wait. Tony doesn't either. Evenings, weekends, he picks up.
+- No hard sell, no hidden costs — He quotes what the job costs. No surprises when the invoice arrives.
+- Explains everything as he goes — Tony talks you through the job — what he's doing and why. No mystery, no jargon.
+- One person, one standard — You deal with Tony direct — not a call centre, not a different sub-contractor every time.
 
 ## Testimonials
-[TESTIMONIAL NEEDED x3 — pull from Google reviews]
+1. Stewart M — "Tony supplied an alarm and loft aerial — he really does do everything! A price was agreed, he wasn't pushy and knew his stuff. He arrived promptly, talking me through everything. Nothing is too much bother for Tony and he will point you in the right direction without breaking the bank."
+2. Alastair M — "Contacted Tony with an issue with my uPVC door and within 40 minutes he was there and had worked out the problem. Knowledgeable and helpful — also gave me tips on how to service the door to prevent other issues. Very good service and a good price. Definitely recommend."
+3. Jennifer A — "I called Tony on a Sunday night and he was with me within 20 minutes! He made what should have been a very stressful situation, totally effortless. I would definitely use again and would happily recommend to others!"
 
 ## Service Area
 Heading: Covering East Glasgow & Surrounding Areas
