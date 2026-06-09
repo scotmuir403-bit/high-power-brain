@@ -1,0 +1,8 @@
+{
+  "framework": null,
+  "buildCommand": null,
+  "outputDirectory": "wms-app",
+  "rewrites": [
+    { "source": "/api/apify/(.*)", "destination": "/api/apify?path=$1" }
+  ]
+}
