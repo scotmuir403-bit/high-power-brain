@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scott Muir — Digital Made Simple. AI content systems for small businesses. Set up once, posts written every week.">
+  <title>Scott Muir — Digital Made Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a0a0a;
+      --card:     #181818;
+      --border:   #2a2a2a;
+      --accent:   #f97316;
+      --accent-d: #c2570f;
+      --text:     #e8e8e8;
+      --muted:    #888;
+      --radius:   12px;
+    }
+
+    html, body { height: 100%; }
+
+    html { scroll-behavior: smooth; overflow-y: auto; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── HEADER ── */
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px 0 24px;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+      overflow: hidden;
+      /* TODO: Replace with: <img src="your-photo.jpg" alt="Scott Muir"> */
+    }
+
+    /* Uncomment and set src when photo is ready:
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    */
+
+    .profile-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .profile-handle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .profile-bio {
+      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #c0c0c0;
+      max-width: 380px;
+    }
+
+    .proof-pill {
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(249, 115, 22, 0.12);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      line-height: 1.4;
+    }
+
+    /* ── CARDS ── */
+    .section { margin-top: 24px; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      padding-left: 2px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    /* ── FREE GUIDE — hero card ── */
+    .card-hero {
+      border-color: rgba(249, 115, 22, 0.25);
+      background: linear-gradient(135deg, #1a1208 0%, var(--card) 60%);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .badge-free {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .badge-primary {
+      background: rgba(249, 115, 22, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .badge-soon {
+      background: rgba(100, 100, 100, 0.2);
+      color: var(--muted);
+      border: 1px solid rgba(100, 100, 100, 0.3);
+    }
+
+    .card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .card-hero .card-title { font-size: 24px; }
+
+    .card-desc {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 13px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn:active { transform: scale(0.98); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-d); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-outline:hover { background: rgba(249, 115, 22, 0.08); }
+
+    /* ── SERVICES CARD ── */
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #222;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .price-note strong {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    /* ── PRODUCTS GRID ── */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .product-info { flex: 1; }
+
+    .product-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .product-meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .product-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .product-format {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .product-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      border-radius: 7px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .product-cta:hover { background: rgba(249, 115, 22, 0.08); }
+
+    .product-cta.coming-soon {
+      border-color: var(--border);
+      color: var(--muted);
+      cursor: default;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 14px 0;
+    }
+
+    /* ── SOCIAL ROW ── */
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease 0.6s forwards;
+    }
+
+    .footer-brand {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:nth-child(1) { animation: fadeUp 0.45s ease 0.1s forwards; }
+    .card:nth-child(2) { animation: fadeUp 0.45s ease 0.18s forwards; }
+    .card:nth-child(3) { animation: fadeUp 0.45s ease 0.26s forwards; }
+    .card:nth-child(4) { animation: fadeUp 0.45s ease 0.34s forwards; }
+    .section:nth-child(1) .card { animation: fadeUp 0.45s ease 0.15s forwards; }
+    .section:nth-child(2) .card { animation: fadeUp 0.45s ease 0.22s forwards; }
+    .section:nth-child(3) .card:nth-child(1) { animation: fadeUp 0.45s ease 0.29s forwards; }
+    .profile { animation: fadeUp 0.5s ease 0.05s forwards; }
+    .social-row { animation: fadeUp 0.5s ease 0.5s forwards; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ═══════════════════════════════
+         1. PROFILE HEADER
+         ═══════════════════════════════ -->
+    <div class="profile">
+
+      <!-- TODO: Replace initials with your photo
+           <img class="avatar" src="scott-muir.jpg" alt="Scott Muir">
+           Instead, use: <div class="avatar"><img src="scott-muir.jpg" alt="Scott Muir" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+      -->
+      <div class="avatar">SM</div>
+
+      <div class="profile-name">Scott Muir</div>
+      <div class="profile-handle">@scott.aimade.simple · Glasgow, Scotland</div>
+
+      <p class="profile-bio">
+        I build AI content systems for small businesses.<br>
+        Set up once — posts written for you every week.<br>
+        No tech skills needed. No fluff.
+      </p>
+
+      <span class="proof-pill">
+        Building this around night shifts — first client in progress
+      </span>
+    </div>
+
+
+    <!-- ═══════════════════════════════
+         2. QUIZ — hero card
+         ═══════════════════════════════ -->
+    <div class="section">
+      <div class="section-label">Start here — takes 2 minutes</div>
+      <div class="card card-hero">
+        <span class="badge badge-free">Free Quiz</span>
+        <div class="card-title">Find Out If AI Can Save Your Business Time Every Week</div>
+        <p class="card-desc">
+          Answer 5 quick questions. I'll show you exactly where AI can save you
+          time in your business — and what to do first. No jargon. No fluff.
+        </p>
+        <a href="https://ainightshift.co.uk" target="_blank" rel="noopener" class="btn btn-primary">Take the 2-Minute Quiz →</a>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════
+         3. AI CONTENT SERVICES
+         ═══════════════════════════════ -->
+    <div class="section">
+      <div class="section-label">Work with me</div>
+      <div class="card">
+        <span class="service-icon">⚙️</span>
+        <span class="badge badge-primary">AI Content Systems</span>
+        <div class="card-title" style="margin-top:10px">Done-With-You Content Automation</div>
+
+        <!-- TODO: Refine this description to match your current service offer -->
+        <p class="card-desc">
+          I set up an AI content system for your business — built around your voice,
+          your audience, and what you actually sell. After setup, content gets written
+          for you every week without you having to think about it.
+        </p>
+
+        <div class="service-tags">
+          <span class="tag">AI Content Systems</span>
+          <span class="tag">Social Media Posts</span>
+          <span class="tag">Weekly Automation</span>
+          <span class="tag">Set Up Once</span>
+          <span class="tag">Small Business</span>
+        </div>
+
+        <div class="price-note">
+          From <strong>£18/month</strong> after setup · No code required
+        </div>
+
+        <!-- TODO: Replace # with your booking link (Calendly, TidyCal, etc.) -->
+        <a href="#TODO-booking-link" class="btn btn-outline">Book a Free Call</a>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════
+         4. DIGITAL PRODUCTS
+         ═══════════════════════════════ -->
+    <div class="section">
+      <div class="section-label">Digital products</div>
+      <div class="card">
+        <div class="products-grid">
+
+          <!-- Product 1: Hook Pack -->
+          <div class="product-card">
+            <div class="product-info">
+              <div class="product-title">100 Hook Pack — TikTok &amp; Reels</div>
+              <div class="product-meta">
+                <span class="product-price">£27</span>
+                <span class="product-format">PDF</span>
+              </div>
+              <p class="card-desc" style="margin-bottom:0">
+                100 scroll-stopping hooks written for small business content.
+                Swipe, tweak, post.
+              </p>
+              <!-- TODO: Replace # with your Gumroad product link -->
+              <a href="#TODO-gumroad-hook-pack" class="product-cta">Get it →</a>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Product 2: AI Starter Prompt Pack -->
+          <div class="product-card">
+            <div class="product-info">
+              <div class="product-title">AI Starter Prompt Pack</div>
+              <div class="product-meta">
+                <span class="product-price">£37</span>
+                <span class="product-format">PDF + Google Doc</span>
+              </div>
+              <p class="card-desc" style="margin-bottom:0">
+                The prompts I actually use to run content systems for clients.
+                Copy, paste, adapt.
+              </p>
+              <!-- TODO: Replace # with your Gumroad product link -->
+              <a href="#TODO-gumroad-prompt-pack" class="product-cta">Get it →</a>
+            </div>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Product 3: 30-Day Captions — Coming Soon -->
+          <div class="product-card">
+            <div class="product-info">
+              <div class="product-title">30-Day Caption Templates</div>
+              <div class="product-meta">
+                <span class="product-price">£27</span>
+                <span class="product-format">PDF</span>
+              </div>
+              <p class="card-desc" style="margin-bottom:0">
+                A month of social captions — plug in your business details and you're done.
+              </p>
+              <span class="product-cta coming-soon">Coming Soon</span>
+            </div>
+          </div>
+
+          <!-- Add more products here — copy the product-card block above -->
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════
+         5. SOCIAL LINKS
+         ═══════════════════════════════ -->
+    <div class="social-row">
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@scott.aimade.simple" target="_blank" rel="noopener" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/>
+        </svg>
+        TikTok
+      </a>
+
+      <!-- LinkedIn — TODO: Add your LinkedIn profile URL -->
+      <a href="#TODO-linkedin-url" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        LinkedIn
+      </a>
+
+      <!-- YouTube — TODO: Add your YouTube channel URL -->
+      <a href="#TODO-youtube-url" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        YouTube
+      </a>
+
+      <!-- Email -->
+      <!-- TODO: Replace with your business email once set up, e.g. scott@digital-madesimple.co.uk -->
+      <a href="mailto:scotmuir403@gmail.com" class="social-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+        Email
+      </a>
+
+    </div>
+
+
+    <!-- ═══════════════════════════════
+         6. FOOTER
+         ═══════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer-brand">Digital Made Simple</div>
+      <!-- TODO: Update with your domain once live -->
+      <div>digital-madesimple.co.uk · Glasgow, Scotland</div>
+      <div style="margin-top:6px">Built around night shifts. No fluff.</div>
+    </footer>
+
+  </div>
+</body>
+</html>
