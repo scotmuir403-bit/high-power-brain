@@ -1,7 +1,8 @@
 ---
 date: 2026-06-24
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-06-24T00:00:00Z
 ---
 
 This is what week 2 of building a real client's AI content system looks like.
