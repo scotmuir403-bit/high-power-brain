@@ -1,7 +1,8 @@
 ---
 date: 2026-07-09
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-07-09T00:00:00Z
 ---
 
 Here's what I'm actually building for my first client.
