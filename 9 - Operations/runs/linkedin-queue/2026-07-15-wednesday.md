@@ -1,7 +1,9 @@
 ---
 date: 2026-07-15
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-07-15T07:04:00Z
+post_urn: urn:li:share:7483053905157812224
 ---
 
 I've been explaining what I do to people lately and I want to get better at it.
