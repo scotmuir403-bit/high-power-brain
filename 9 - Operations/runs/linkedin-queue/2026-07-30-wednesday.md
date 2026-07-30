@@ -1,7 +1,8 @@
 ---
 date: 2026-07-30
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-07-30T07:05:45Z
 ---
 
 OpenAI launched GPT-Live this month.
