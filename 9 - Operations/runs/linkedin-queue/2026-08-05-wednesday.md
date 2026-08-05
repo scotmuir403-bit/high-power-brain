@@ -1,7 +1,8 @@
 ---
 date: 2026-08-05
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-08-05T07:06:18Z
 ---
 
 There's a stat that keeps doing the rounds: AI saves employees an average of 7.5 hours per week.
