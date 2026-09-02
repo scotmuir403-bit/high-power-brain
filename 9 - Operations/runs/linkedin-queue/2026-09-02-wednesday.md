@@ -1,7 +1,8 @@
 ---
 date: 2026-09-02
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-09-02T00:00:00Z
 ---
 
 The question I get most from small business owners when I talk about AI content systems:
