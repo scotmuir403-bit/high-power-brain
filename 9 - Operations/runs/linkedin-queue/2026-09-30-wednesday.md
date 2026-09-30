@@ -1,7 +1,8 @@
 ---
 date: 2026-09-30
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-09-30T07:09:00Z
 ---
 
 My first potential client runs a safety app for construction sites.
