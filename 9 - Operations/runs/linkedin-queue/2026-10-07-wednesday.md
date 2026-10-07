@@ -1,7 +1,8 @@
 ---
 date: 2026-10-07
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-10-07T07:15:00Z
 ---
 
 The question I get asked most often by small business owners is:
