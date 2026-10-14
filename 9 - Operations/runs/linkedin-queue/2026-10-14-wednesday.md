@@ -1,7 +1,8 @@
 ---
 date: 2026-10-14
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-10-14T07:05:27Z
 ---
 
 AI agents are all over the conversation this week.
