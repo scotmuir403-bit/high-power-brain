@@ -1,7 +1,8 @@
 ---
 date: 2026-10-21
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-10-21T07:14:00Z
 ---
 
 Something I don't love admitting publicly:
