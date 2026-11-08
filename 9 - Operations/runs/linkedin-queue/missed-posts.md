@@ -17,3 +17,4 @@
 - 2026-10-27: No post file found.
 - 2026-10-28: No post file found.
 - 2026-10-31: No post file found.
+- 2026-11-08: No post file found. (Sunday — no scheduled post)
