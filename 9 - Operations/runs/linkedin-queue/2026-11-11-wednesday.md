@@ -1,7 +1,8 @@
 ---
 date: 2026-11-11
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-11-11T07:11:00Z
 ---
 
 I'm working with a small business owner right now on building an AI content system for them.
