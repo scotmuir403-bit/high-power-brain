@@ -1,7 +1,8 @@
 ---
 date: 2026-11-18
 day: Wednesday
-status: scheduled
+status: posted
+posted_at: 2026-11-18T07:10:54
 ---
 
 Building in public means sharing the messy bits too.
